@@ -1,0 +1,28 @@
+version: 2.1
+
+jobs:
+  deploy:
+    # set docker image
+    docker:
+      - image: cimg/base:2022.03
+    steps:
+      - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "	d2:32:c0:f4:ba:db:20:95:1b:72:85:d9:07:9d:65:7c"
+      - run:
+          name: "Pull and deploy"
+          command: "ssh -o StrictHostKeyChecking=no ${SSH_USER_NAME}@${SSH_HOST_NAME} \
+            \"ssh ${REMOTE_HOST_NAME} \
+            'cd ~/tools/NiFT && git pull origin release:release && bash deploy.sh'\""
+
+workflows:
+  deploy-workflow:
+    jobs:
+      - deploy:
+          context:
+            - nift-settings
+          filters:
+            branches:
+              only:
+                - release
