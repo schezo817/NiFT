@@ -14,5 +14,7 @@ jobs:
         with:
           node-version: 16
       - name: Linter Check
-        run: yarn run lint
+        run: |
+          yarn install
+          yarn run lint
         working-directory: ./frontend
