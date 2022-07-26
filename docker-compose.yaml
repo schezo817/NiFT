@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  frontend:
+    image: node:16-bullseye
+    working_dir: /app
+    build:
+      context: ./frontend
+    tty: true
+    volumes:
+      - ./frontend:/app
+    environment:
+      - WATCHPACK_POLLING=true
+    command: sh -c "yarn install && yarn dev"
+    ports:
+      - 3000:3000
