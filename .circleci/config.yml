@@ -9,7 +9,7 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - "0b:b9:7b:f7:29:31:bb:8b:a9:18:57:41:7b:f9:72:eb"
+            - "	d2:32:c0:f4:ba:db:20:95:1b:72:85:d9:07:9d:65:7c"
       - run:
           name: "Pull and deploy"
           command: "ssh -o StrictHostKeyChecking=no ${SSH_USER_NAME}@${SSH_HOST_NAME} \
@@ -25,4 +25,4 @@ workflows:
           filters:
             branches:
               only:
-                - release
+                - feature/cicd
