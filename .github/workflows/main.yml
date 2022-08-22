@@ -17,4 +17,4 @@ jobs:
         run: |
           yarn install
           yarn run lint
-        working-directory: ./frontend
+        working-directory: ./nift
