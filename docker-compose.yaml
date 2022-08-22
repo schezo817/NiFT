@@ -4,10 +4,10 @@ services:
     image: node:16-bullseye
     working_dir: /app
     build:
-      context: ./frontend
+      context: ./nift
     tty: true
     volumes:
-      - ./frontend:/app
+      - ./nift:/app
     environment:
       - WATCHPACK_POLLING=true
     command: sh -c "yarn install && yarn dev"
