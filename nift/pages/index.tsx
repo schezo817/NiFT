@@ -1,8 +1,18 @@
+import { LockClosedIcon } from '@heroicons/react/solid'
 import { NextPage } from "next";
+import Create from './Create ';
+import Login from './login';
 
 const Home: NextPage = () => {
   return (
-    <button className="btn btn-info">Info</button>
+    <>
+      <div>
+        <Login />
+      </div>
+      <div>
+        <Create />
+      </div>
+    </>
   )
 }
 
