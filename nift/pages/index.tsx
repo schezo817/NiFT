@@ -1,45 +1,15 @@
-import { LockClosedIcon } from '@heroicons/react/solid'
-import { NextPage } from "next";
-import Create from './Create ';
-import SelectAvatar from './SelectAvatar';
-import Cardfooter from './cardfooter';
-import Centergrid from './centergrid';
-import Dashboard from './dashboard';
-import Expandablesidebar from './expandablesidebar';
-import Justified from './justified';
-import Login from './login';
-import Market from './market';
-import Navbar from './navbar';
-import Quickview from './quickview';
-import Sideover from './sideover';
-import Top from './top';
-import Withclose from './withclose';
-import Withimagegrid from './withimagegrid';
+import Head from "next/head";
 
-const Home: NextPage = () => {
-  return (
+function HomePage() {
+  return  (
     <>
-      <div>
-        {/* <Withclose /> */}
-        <Top />
-        <Login />
-        <Justified />
-        <Sideover />
-        <Centergrid />
-        <Expandablesidebar />
-        <Market />
-      </div>
-      <div>
-        <Navbar />
-        <Quickview />
-        <Withimagegrid />
-        <Create />
-        <Cardfooter />
-        <Dashboard />
-        <SelectAvatar />
-      </div>
+      <Head>
+        <title>NiFT : a gift with NFT</title>
+        <meta name = "description" content = "This is description" />
+      </Head>
+      <h1>Hello World</h1>
     </>
-  )
+  );
 }
 
-export default Home;
+export default HomePage;
