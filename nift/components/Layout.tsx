@@ -1,6 +1,13 @@
+import Seo from "./_common/Seo";
+
 const Layout = () => {
     return(
-        <div></div>
+        <>
+            <Seo />
+            <div>
+
+            </div>
+        </>
     );
 };
 

@@ -1,23 +1,25 @@
 import Head from "next/head";
 
-const Meta = ({
+interface MetaData {
+	pageTitle?: string;
+	pageUrl?: string;
+	pageOgImage?: string;
+	noIndex?: boolean;
+}
+
+const Seo = ({
 	pageTitle,
 	pageUrl,
 	pageOgImage,
 	noIndex = false,
-}: {
-	pageTitle: string;
-	pageUrl: string;
-	pageOgImage: string;
-	noIndex?: boolean;
-}) => {
+}: MetaData) => {
 	const defaultTitle = "NiFT | NFT + GiFT";
 	const title = pageTitle ? `${pageTitle} | ${defaultTitle}` : defaultTitle;
 	const description = "NiFTはNFTマーケットプレイスです";
 	const siteName = "NiFT | NFT + GiFT";
 	const domain = "nift.tk";
 	const url = pageUrl ? `https://${domain}/${pageUrl}/` : `https://${domain}`;
-	const ogImage = pageOgImage || `https://${domain}/common/og-image.png`;
+	const ogImage = pageOgImage || `https://${domain}/ogp.png`;
 
 	return (
 		<Head>
@@ -31,7 +33,6 @@ const Meta = ({
 			<meta property="og:image" content={ogImage} />
 			<meta property="og:locale" content="ja_JP" />
 			<meta name="twitter:card" content="summary_large_image" />
-			<meta name="twitter:creator" content="@nakaatsu" />
 			<meta name="twitter:title" content={title} />
 			<meta name="twitter:description" content={description} />
 			<meta name="twitter:url" content={url} />
@@ -47,4 +48,4 @@ const Meta = ({
 	)
 }
 
-export default Meta;
+export default Seo;
