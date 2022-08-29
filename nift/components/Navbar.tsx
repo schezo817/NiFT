@@ -157,14 +157,14 @@ const Navbar = () => {
                             </li>
                         </Link>
                     </ul>
-                    <div className="btn-group">
+                    {/* <div className="btn-group"> */}
                     <Link href = {"/login"}>
                         <button className="btn">Log IN</button>
                     </Link>
                     <Link href = {"/get"}>
                         <button className="btn">Get NiFTs</button>
                     </Link>
-                    </div>
+                    {/* </div> */}
                     {/* <div className="divider divider-horizontal"></div> */}
                 </div>
         </div>
