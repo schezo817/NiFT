@@ -2,7 +2,11 @@ import { NextPage } from "next";
 import Link from "next/link";
 
 const Home: NextPage = () => {
-    return <div className="bg-gradient-to-br"></div>;
+  return (
+    <div>
+        
+    </div>
+    );
 };
 
 export default Home;
