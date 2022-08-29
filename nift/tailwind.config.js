@@ -3,9 +3,6 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                raleway: ["Raleway"],
-                kosugimaru: ["Kosugi Maru"],
-                azeretmono: ["Azeret Mono"],
             },
         },
     },
