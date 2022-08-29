@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import Link from "next/link";
 
 const Home: NextPage = () => {
-    return (
+  return (
         <div className="bg-gradient-to-br">
             <Link href={"/login"}>
                 Login
