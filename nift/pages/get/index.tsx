@@ -51,7 +51,7 @@ const Get: NextPage = () => {
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
                     <h2 className="card-title">コードチェック</h2>
-                    <p>確認の4桁の数字を入力してください</p>
+                    <p>QRコードと一緒に書かれている<br/>確認の4桁の数字を入力してください</p>
                     <div className="flex justify-center p-4">
                         {
                             pinCode.map((v, i) => {
