@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Navbar = () => {
     return (
         <div className="navbar bg-base-900">
@@ -24,7 +26,10 @@ const Navbar = () => {
             <div className="navbar-end">
                 <ul className="menu menu-horizontal p-0">
                 <li><a>AboutUS</a></li>
-                <li><a className="btn bg-base-100">Get started</a></li>
+                <Link href = {"/login"}>
+                    <a className="btn bg-black">Log In</a>
+                </Link>
+                {/* <li><a className="btn bg-base-100">Log In</a></li> */}
                 </ul>
             </div>
         </div>
