@@ -4,7 +4,7 @@ import History from "components/History"
 import Navbar from "components/Navbar";
 import Welcome from "components/Welcome";
 import Works from "components/Works";
-import Meta from "components/_common";
+import Meta from "components/_common/MetaData";
 
 import { NextPage } from "next";
 
