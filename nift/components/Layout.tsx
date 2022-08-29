@@ -1,12 +1,19 @@
+import { ReactNode } from "react";
+import Footer from "./Footer";
+import Navbar from "./Navbar";
 import Seo from "./_common/Seo";
 
-const Layout = () => {
-    return(
+interface Props {
+    children: ReactNode;
+}
+
+const Layout = ({ children }: Props) => {
+    return (
         <>
             <Seo />
-            <div>
-
-            </div>
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
         </>
     );
 };
