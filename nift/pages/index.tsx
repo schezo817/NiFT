@@ -1,9 +1,8 @@
 import { NextPage } from "next";
+import Link from "next/link";
 
 const Home: NextPage = () => {
-  return (
-    <button className="btn btn-info">Info</button>
-  )
-}
+    return <div className="bg-gradient-to-br"></div>;
+};
 
 export default Home;

@@ -3,7 +3,7 @@ name: Lint_Frontend
 on: push
 
 env:
-  FILE_PATTERN: "src/**/*.{ts,tsx,js,jsx}"
+  FILE_PATTERN: "**/*.{ts,tsx,js,jsx}"
 
 jobs:
   lint:
@@ -16,5 +16,5 @@ jobs:
       - name: Linter Check
         run: |
           yarn install
-          yarn run lint
+          yarn run lint:check
         working-directory: ./nift
