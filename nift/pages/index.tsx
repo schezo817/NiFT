@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Home: NextPage = () => {
   return (
-        <div className="bg-gradient-to-br">
+        <div className="">
             <Link href={"/login"}>
                 Login
             </Link>
@@ -23,7 +23,7 @@ const Home: NextPage = () => {
             <div className="form-control">
                 <label className="label cursor-pointer">
                     <span className="label-text">Remember me</span> 
-                    <input type="checkbox" checked="checked" className="checkbox" />
+                    <input type="checkbox" checked className="checkbox" />
                 </label>
             </div>
         </div>
