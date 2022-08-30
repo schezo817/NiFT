@@ -29,7 +29,7 @@ const Login:NextPage = () => {
                     <div className="form-control mt-6 justify-items-center">
                         
                         <button className="btn btn-primary">Log in</button>
-                        <span className="label-text">let's create Account and get NFT!</span>
+                        <span className="label-text">let&apos;s create Account and get NFT!</span>
                         <button className="btn btn-primary">Sign In</button>
                     </div>
                 </div>

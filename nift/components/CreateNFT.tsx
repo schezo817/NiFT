@@ -1,3 +1,5 @@
+import NextLink from "next/link"
+
 const CreateNFT = () => {
     return(
         <div>
