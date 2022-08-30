@@ -3,7 +3,7 @@ import Link from "next/link";
 const Footer = () => {
     return (
         <>
-            <footer className="footer p-8 bg-base-200 text-base-content max-w-screen-2xl">
+            <footer className="footer p-8 bg-base-200 text-base-content max-w-full">
                 <div>
                     <svg
                         width="100"
@@ -74,10 +74,6 @@ const Footer = () => {
                             </svg>
                         </a>
                     </div>
-                </div>
-            </footer>
-            <footer className="footer footer-center p-2 bg-base-200 text-base-content">
-                <div>
                     <p>Copyright © 2022 - All right reserved by ACME Industries Ltd</p>
                 </div>
             </footer>
