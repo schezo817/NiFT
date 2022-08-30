@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import Link from "next/link";
 
-const MarketPlace: NextPage = () => {
+const About: NextPage = () => {
     return (
         <div>
             <div className="text-sm breadcrumbs">
@@ -9,15 +9,13 @@ const MarketPlace: NextPage = () => {
                     <Link href ={"/"}>
                         <li><a>Home</a></li> 
                     </Link>
-                    <Link href ={"/marketplace"}>
-                        <li><a>MarketPlace</a></li> 
+                    <Link href ={"/about"}>
+                        <li><a>AboutUS</a></li> 
                     </Link>
                 </ul>
             </div>
-
-            
         </div>
     )
 }
 
-export default MarketPlace;
+export default About;
