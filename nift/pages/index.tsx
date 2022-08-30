@@ -9,7 +9,7 @@ const Home: NextPage = () => {
         <div>
           <h1 className="text-5xl font-bold">NiFT | a gift with NFT</h1>
           <p className="py-6"> Buy and sell NFT gifts.</p>
-          <Link href={"/SeeNiFTs"}>
+          <Link href={"/marketplace"}>
             <button className="btn btn-primary">
               Go MarketPlace
             </button>
