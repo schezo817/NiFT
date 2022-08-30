@@ -1,6 +1,6 @@
-import CreateNFT from "components/CreateNFT";
 import { NextPage } from "next";
 import Link from "next/link";
+import CreateNFT from "../../../components/CreateNFT"
 
 const Create: NextPage = () => {
     return (
