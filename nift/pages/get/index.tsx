@@ -37,8 +37,17 @@ const Get: NextPage = () => {
         inputRef.current?.focus();
     }, [activePinIndex]);
 
+    
+
     return (
         <div className="flex w-full justify-center items-center flex-col p-4 gap-4">
+            <div className="text-center">
+                <h1 className="text-2xl font-bold p-4">NFT取得</h1>
+                <p>NFTを取得するためには配布されたQRコードを読み取り、アクセスしてください</p>
+                <div className="flex justify-center gap-4">
+                    <div className="badge badge-primary">NiFT Official</div>
+                </div>
+            </div>
             <div className="text-center">
                 <h1 className="text-2xl font-bold p-4">NFT取得</h1>
                 <p>以下のNFTを取得しようとしています</p>

@@ -1,46 +1,26 @@
 import Link from "next/link";
+import { MdLogin, MdOutlineHome, MdOutlineInfo, MdMenu } from "react-icons/md";
+import { HiChevronDown } from "react-icons/hi";
 
 const Navbar = () => {
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 fixed z-50">
             <div className="navbar-start">
                 <div className="dropdown z-0">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-5 w-5"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M4 6h16M4 12h8m-8 6h16"
-                            />
-                        </svg>
+                        <MdMenu className="text-2xl"/>
                     </label>
                     <ul
                         tabIndex={0}
-                        className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+                        className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-40"
                     >
                         <li tabIndex={0}>
                             <Link href={"/marketplace"}>
                                 <a>
-                                    MarketPlace
-                                    <svg
-                                        className="fill-current"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="20"
-                                        height="20"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                                    </svg>
+                                    <span>MarketPlace</span><HiChevronDown className="text-xl" />
                                 </a>
                             </Link>
-                            <ul className="p-2 bg-white">
+                            <ul className="ml-2 p-2 bg-white dark:bg-base-100">
                                 <Link href={"/marketplace/see"}>
                                     <li>
                                         <a>See NiFTs</a>
@@ -56,42 +36,14 @@ const Navbar = () => {
                         <Link href={"/dashboard"}>
                             <li>
                                 <a>
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="h-5 w-5"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth="2"
-                                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                                        />
-                                    </svg>
-                                    DashBoard
+                                    <MdOutlineHome className="text-xl" /><span>Dashboard</span>
                                 </a>
                             </li>
                         </Link>
                         <Link href={"/about"}>
                             <li>
                                 <a>
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="h-5 w-5"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth="2"
-                                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                                        />
-                                    </svg>
-                                    AboutUS
+                                    <MdOutlineInfo className="text-xl" /><span>About</span>
                                 </a>
                             </li>
                         </Link>
@@ -101,21 +53,12 @@ const Navbar = () => {
                     <a className="btn btn-ghost normal-case text-xl">NiFT</a>
                 </Link>
             </div>
-            <div className="navbar-end justify-self-auto">
+            <div className="navbar-end justify-self-auto gap-x-2">
                 <ul className="menu menu-horizontal p-0 hidden lg:flex">
                     <li tabIndex={0}>
                         <Link href={"/marketplace"}>
                             <a>
-                                MarketPlace
-                                <svg
-                                    className="fill-current"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="20"
-                                    height="20"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                                </svg>
+                                <span>MarketPlace</span><HiChevronDown className="text-xl" />
                             </a>
                         </Link>
                         <ul className="p-2 bg-white">
@@ -129,48 +72,31 @@ const Navbar = () => {
                                     <a>Create NiFTs</a>
                                 </li>
                             </Link>
-                            </ul>
-                        </li>
-                        <Link href={"/dashboard"}>
+                        </ul>
+                    </li>
+                    <Link href={"/dashboard"}>
                         <li>
                             <a>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-5 w-5"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth="2"
-                                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                                    />
-                                </svg>
-                                DashBoard
+                                <MdOutlineHome className="text-xl" /><span>Dashboard</span>
                             </a>
                         </li>
                     </Link>
-                        <Link href={"/about"}>
-                            <li>
-                                <a>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                                    AboutUS
-                                </a>
-                            </li>
-                        </Link>
-                    </ul>
-                    {/* <div className="btn-group"> */}
-                    <Link href = {"/login"}>
-                        <button className="btn">Log IN</button>
+                    <Link href={"/about"}>
+                        <li>
+                            <a>
+                                <MdOutlineInfo className="text-xl" /><span>About</span>
+                            </a>
+                        </li>
                     </Link>
-                    <Link href = {"/get"}>
-                        <button className="btn">Get NiFTs</button>
-                    </Link>
-                    {/* </div> */}
-                    {/* <div className="divider divider-horizontal"></div> */}
-                </div>
+                </ul>
+                {/* <div className="btn-group"> */}
+                <Link href={"/login"}>
+                    <button className="btn"><MdLogin className="text-xl" /><span className="pl-2">login</span></button>
+                </Link>
+                <Link href={"/get"}>
+                    <button className="btn">Get NiFTs</button>
+                </Link>
+            </div>
         </div>
     );
 };
