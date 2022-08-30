@@ -12,7 +12,7 @@ const Create: NextPage = () => {
                     <Link href ={"/marketplace"}>
                         <li><a>MarketPlace</a></li> 
                     </Link>
-                    <Link href ={"/see"}>
+                    <Link href ={"/marketplace/see"}>
                         <li><a>See</a></li> 
                     </Link>
                 </ul>

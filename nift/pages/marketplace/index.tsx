@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const MarketPlace: NextPage = () => {
     return (
-        <div>
+        <div className="">
             <div className="text-sm breadcrumbs">
                 <ul>
                     <Link href ={"/"}>
@@ -15,7 +15,18 @@ const MarketPlace: NextPage = () => {
                 </ul>
             </div>
 
-            
+            <div className="btn-group">
+                <Link href={"/marketplace/see"}>
+                    <button className="btn">
+                        SeeNiFTs
+                    </button>
+                </Link>
+                <Link href={"/marketplace/create"}>
+                    <button className="btn">
+                        CreateNiFTs
+                    </button>
+                </Link>
+            </div>
         </div>
     )
 }
