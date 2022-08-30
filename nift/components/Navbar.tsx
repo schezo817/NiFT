@@ -4,7 +4,7 @@ import { HiChevronDown } from "react-icons/hi";
 
 const Navbar = () => {
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 fixed">
             <div className="navbar-start">
                 <div className="dropdown z-0">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
