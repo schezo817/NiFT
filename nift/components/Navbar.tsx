@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { MdLogin, MdOutlineHome, MdOutlineInfo, MdMenu } from "react-icons/md";
 import { HiChevronDown } from "react-icons/hi";
+import { MdLogin, MdOutlineHome, MdOutlineInfo, MdMenu } from "react-icons/md";
 
 const Navbar = () => {
     return (
