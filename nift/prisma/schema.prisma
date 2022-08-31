@@ -15,7 +15,7 @@ model users {
   auth  user_auth? // 認証情報
   detail user_detail? // 詳細情報
   flag  user_flag? // フラグ(企業かどうか等...)
-  reserved_NFTS reserved_NFT[]
+  reserved_NFTs reserved_NFTs[]
   created_at  DateTime  @default(now())
   updated_at  DateTime  @updatedAt
 }
@@ -46,7 +46,7 @@ model user_flag {
 }
 
 // Reserved NFT Model
-model reserved_NFT {
+model reserved_NFTs {
   uuid  String  @unique @db.Uuid // 予約されたNFTコード
   id  users @relation(fields: [user_id], references: [uuid]) // 企業コード
   user_id String  @db.Uuid
@@ -57,7 +57,7 @@ model reserved_NFT {
 }
 
 model reserved_NFT_detail {
-  id reserved_NFT @relation(fields: [uuid], references: [uuid]) // NFTのUUID
+  id reserved_NFTs @relation(fields: [uuid], references: [uuid]) // NFTのUUID
   uuid String @unique @db.Uuid 
   name  String @db.VarChar(50) // NFTの名前
   brand  String @db.VarChar(255) // ブランド名
@@ -68,7 +68,7 @@ model reserved_NFT_detail {
 }
 
 model reserved_NFT_flag {
-  id reserved_NFT @relation(fields: [uuid], references: [uuid]) // NFTのUUID
+  id reserved_NFTs @relation(fields: [uuid], references: [uuid]) // NFTのUUID
   uuid String @unique @db.Uuid
   used  Boolean @default(false) @db.Boolean // 使用済かどうか
   created_at  DateTime  @default(now())
