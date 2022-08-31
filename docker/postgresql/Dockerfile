@@ -12,4 +12,3 @@ RUN set -eux \
     && echo "shared_preload_libraries = 'pg_bigm'" >> /usr/local/share/postgresql/postgresql.conf.sample \
     && rm -fr /tmp/pg_bigm-1.2-20200228 \
     && apk del --purge build-dependencies
-
