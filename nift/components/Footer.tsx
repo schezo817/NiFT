@@ -50,10 +50,10 @@ const Footer = () => {
                 <span className="footer-title">Social</span>
                 <div className="grid grid-flow-col gap-4">
                     <a>
-                        <FaTwitter className="text-2xl"/>
+                        <FaTwitter className="text-2xl" />
                     </a>
                     <a>
-                        <FaGithub className="text-2xl"/>
+                        <FaGithub className="text-2xl" />
                     </a>
                 </div>
                 <p>Copyright © 2022 - All right reserved by NiFT Project</p>
