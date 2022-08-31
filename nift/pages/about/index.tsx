@@ -6,16 +6,20 @@ const About: NextPage = () => {
         <div>
             <div className="text-sm breadcrumbs">
                 <ul>
-                    <Link href ={"/"}>
-                        <li><a>Home</a></li> 
+                    <Link href={"/"}>
+                        <li>
+                            <a>Home</a>
+                        </li>
                     </Link>
-                    <Link href ={"/about"}>
-                        <li><a>AboutUS</a></li> 
+                    <Link href={"/about"}>
+                        <li>
+                            <a>AboutUS</a>
+                        </li>
                     </Link>
                 </ul>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default About;
