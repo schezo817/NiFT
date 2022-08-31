@@ -8,7 +8,7 @@ const Navbar = () => {
             <div className="navbar-start">
                 <div className="dropdown z-0">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
-                        <MdMenu className="text-2xl"/>
+                        <MdMenu className="text-2xl" />
                     </label>
                     <ul
                         tabIndex={0}
@@ -17,7 +17,8 @@ const Navbar = () => {
                         <li tabIndex={0}>
                             <Link href={"/marketplace"}>
                                 <a>
-                                    <span>MarketPlace</span><HiChevronDown className="text-xl" />
+                                    <span>MarketPlace</span>
+                                    <HiChevronDown className="text-xl" />
                                 </a>
                             </Link>
                             <ul className="ml-2 p-2 bg-white dark:bg-base-100">
@@ -36,14 +37,16 @@ const Navbar = () => {
                         <Link href={"/dashboard"}>
                             <li>
                                 <a>
-                                    <MdOutlineHome className="text-xl" /><span>Dashboard</span>
+                                    <MdOutlineHome className="text-xl" />
+                                    <span>Dashboard</span>
                                 </a>
                             </li>
                         </Link>
                         <Link href={"/about"}>
                             <li>
                                 <a>
-                                    <MdOutlineInfo className="text-xl" /><span>About</span>
+                                    <MdOutlineInfo className="text-xl" />
+                                    <span>About</span>
                                 </a>
                             </li>
                         </Link>
@@ -58,7 +61,8 @@ const Navbar = () => {
                     <li tabIndex={0}>
                         <Link href={"/marketplace"}>
                             <a>
-                                <span>MarketPlace</span><HiChevronDown className="text-xl" />
+                                <span>MarketPlace</span>
+                                <HiChevronDown className="text-xl" />
                             </a>
                         </Link>
                         <ul className="p-2 bg-white">
@@ -77,21 +81,26 @@ const Navbar = () => {
                     <Link href={"/dashboard"}>
                         <li>
                             <a>
-                                <MdOutlineHome className="text-xl" /><span>Dashboard</span>
+                                <MdOutlineHome className="text-xl" />
+                                <span>Dashboard</span>
                             </a>
                         </li>
                     </Link>
                     <Link href={"/about"}>
                         <li>
                             <a>
-                                <MdOutlineInfo className="text-xl" /><span>About</span>
+                                <MdOutlineInfo className="text-xl" />
+                                <span>About</span>
                             </a>
                         </li>
                     </Link>
                 </ul>
                 {/* <div className="btn-group"> */}
                 <Link href={"/login"}>
-                    <button className="btn"><MdLogin className="text-xl" /><span className="pl-2">login</span></button>
+                    <button className="btn">
+                        <MdLogin className="text-xl" />
+                        <span className="pl-2">login</span>
+                    </button>
                 </Link>
                 <Link href={"/get"}>
                     <button className="btn">Get NiFTs</button>

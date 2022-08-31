@@ -6,19 +6,25 @@ const Create: NextPage = () => {
         <div>
             <div className="text-sm breadcrumbs">
                 <ul>
-                    <Link href ={"/"}>
-                        <li><a>Home</a></li> 
+                    <Link href={"/"}>
+                        <li>
+                            <a>Home</a>
+                        </li>
                     </Link>
-                    <Link href ={"/marketplace"}>
-                        <li><a>MarketPlace</a></li> 
+                    <Link href={"/marketplace"}>
+                        <li>
+                            <a>MarketPlace</a>
+                        </li>
                     </Link>
-                    <Link href ={"/marketplace/see"}>
-                        <li><a>See</a></li> 
+                    <Link href={"/marketplace/see"}>
+                        <li>
+                            <a>See</a>
+                        </li>
                     </Link>
                 </ul>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Create;
