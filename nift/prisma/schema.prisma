@@ -22,24 +22,24 @@ model users {
 
 model user_auth {
   uuid users @relation(fields: [user_id], references: [uuid])
-  user_id String  @unique
-  email String @unique
+  user_id String  @unique @db.Uuid
+  email String @unique @db.VarChar(255)
   created_at  DateTime  @default(now())
   updated_at  DateTime  @updatedAt
 }
 
 model user_detail {
   uuid users @relation(fields: [user_id], references: [uuid])
-  user_id String  @unique
-  user_name String
-  image_url String
+  user_id String  @unique @db.Uuid
+  user_name String @db.VarChar(50) // ユーザ名
+  image_url String @db.VarChar(1024) // ユーザプロフィールのURL
   created_at  DateTime  @default(now())
   updated_at  DateTime  @updatedAt
 }
 
 model user_flag {
   uuid  users @relation(fields: [user_id], references: [uuid])
-  user_id String  @unique
+  user_id String  @unique @db.Uuid
   is_company Boolean @default(false)
   created_at  DateTime  @default(now())
   updated_at  DateTime  @updatedAt
@@ -49,12 +49,12 @@ model user_flag {
 model reserved_NFT {
   uuid  String  @unique @db.Uuid // 予約されたNFTコード
   id  users @relation(fields: [user_id], references: [uuid]) // 企業コード
-  user_id String
-  name  String // NFTの名前
-  brand  String // ブランド名
-  description String // NFTの説明
-  code Int // 確認コード
-  used  Boolean @default(false) // 使用済かどうか
+  user_id String  @db.Uuid
+  name  String @db.VarChar(50) // NFTの名前
+  brand  String @db.VarChar(255) // ブランド名
+  description String @db.VarChar(1024) // NFTの説明
+  code Int @db.SmallInt // 確認コード
+  used  Boolean @default(false) @db.Boolean// 使用済かどうか
   createdAt DateTime  @default(now()) // 作成日時
   updatedAt DateTime  @updatedAt // 更新日時
 }
