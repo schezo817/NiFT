@@ -11,7 +11,7 @@ datasource db {
 }
 
 model users {
-  id  String  @unique @db.Uuid // ユーザーを特定するためのUUID
+  uuid  String  @unique @db.Uuid // ユーザーを特定するためのUUID
   auth  user_auth? // 認証情報
   detail user_detail? // 詳細情報
   flag  user_flag? // フラグ(企業かどうか等...)
@@ -21,7 +21,7 @@ model users {
 }
 
 model user_auth {
-  uuid users @relation(fields: [user_id], references: [id])
+  uuid users @relation(fields: [user_id], references: [uuid])
   user_id String  @unique @db.Uuid
   email String @unique @db.VarChar(255)
   created_at  DateTime  @default(now())
@@ -29,7 +29,7 @@ model user_auth {
 }
 
 model user_detail {
-  uuid users @relation(fields: [user_id], references: [id])
+  uuid users @relation(fields: [user_id], references: [uuid])
   user_id String  @unique @db.Uuid
   user_name String @db.VarChar(50) // ユーザ名
   image_url String @db.VarChar(1024) // ユーザプロフィールのURL
@@ -38,7 +38,7 @@ model user_detail {
 }
 
 model user_flag {
-  uuid  users @relation(fields: [user_id], references: [id])
+  uuid  users @relation(fields: [user_id], references: [uuid])
   user_id String  @unique @db.Uuid
   is_company Boolean @default(false)
   created_at  DateTime  @default(now())
@@ -48,7 +48,7 @@ model user_flag {
 // Reserved NFT Model
 model reserved_NFT {
   uuid  String  @unique @db.Uuid // 予約されたNFTコード
-  id  users @relation(fields: [user_id], references: [id]) // 企業コード
+  id  users @relation(fields: [user_id], references: [uuid]) // 企業コード
   user_id String  @db.Uuid
   detail reserved_NFT_detail?
   flag  reserved_NFT_flag?
