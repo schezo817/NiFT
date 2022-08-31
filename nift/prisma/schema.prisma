@@ -54,7 +54,7 @@ model reserved_NFT {
   brand  String @db.VarChar(255) // ブランド名
   description String @db.VarChar(1024) // NFTの説明
   code Int @db.SmallInt // 確認コード
-  used  Boolean @default(false) @db.Boolean// 使用済かどうか
+  used  Boolean @default(false) @db.Boolean // 使用済かどうか
   createdAt DateTime  @default(now()) // 作成日時
   updatedAt DateTime  @updatedAt // 更新日時
 }
