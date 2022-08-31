@@ -9,3 +9,30 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+// User Model
+model User {
+  uuid  String  @unique @db.Uuid // ユーザを一意に特定するために使用する(がemailがユニークキーになっているので設定しなくても問題ないかもしれない)
+  company String // 会社を特定するID
+  email String  @unique // Google OAuth から取得する
+  name  String  // Google OAuth から取得する
+  image String  // Google OAuth から取得する
+  walletAddress  String? // WalletAddressはユーザ登録時には登録されていない
+  reservedNFTS ReservedNFT[] // 予約されたNFTコード
+  createdAt DateTime @default(now()) // 作成日時
+  updatedAt DateTime @updatedAt // 更新日時
+}
+
+// Reserved NFT Model
+model ReservedNFT {
+  uuid  String  @unique @db.Uuid // 予約されたNFTコード
+  company User @relation(fields: [companyId], references: [uuid]) // 企業コード(特定のUUIDが入る)
+  companyId String
+  name  String // NFTの名前
+  brand  String // ブランド名
+  description String // NFTの説明
+  code Int // 確認コード
+  used  Boolean @default(false) // 使用済かどうか
+  createdAt DateTime  @default(now()) // 作成日時
+  updatedAt DateTime  @updatedAt // 更新日時
+}
