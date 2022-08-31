@@ -44,6 +44,16 @@ const CreateNFT = () => {
                             </div>
                             <div>
                                 <label className="block text-sm font-medium text-gray-700">
+                                    NFT Collection（プロジェクト）
+                                </label>
+                                <input
+                                    type="text"
+                                    placeholder="コレクション(プロジェクト)名を入力"
+                                    className="input input-bordered w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700">
                                     NFT Name
                                 </label>
                                 <input
@@ -57,7 +67,7 @@ const CreateNFT = () => {
                                     htmlFor="about"
                                     className="block text-sm font-medium text-gray-700"
                                 >
-                                    Description
+                                    NFT Description
                                 </label>
                                 <div className="mt-1">
                                     <textarea
@@ -79,11 +89,41 @@ const CreateNFT = () => {
                                     className="input input-bordered w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                 />
                             </div>
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700">
+                                    ２次流通ごとに得る割合（0~3%）
+                                </label>
+                                <select className="select select-bordered w-full max-w-xs">
+                                    <option disabled selected>How much you will gain?</option>
+                                    <option>0.0</option>
+                                    <option>0.5</option>
+                                    <option>1.0</option>
+                                    <option>1.5</option>
+                                    <option>2.0</option>
+                                    <option>2.5</option>
+                                    <option>3.0</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700">
+                                    ２次流通ごとに、設定したプロジェクトに投資する割合（0~3%）
+                                </label>
+                                <select className="select select-bordered w-full max-w-xs">
+                                    <option disabled selected>How much you will send?</option>
+                                    <option>0.0</option>
+                                    <option>0.5</option>
+                                    <option>1.0</option>
+                                    <option>1.5</option>
+                                    <option>2.0</option>
+                                    <option>2.5</option>
+                                    <option>3.0</option>
+                                </select>
+                            </div>
                         </div>
 
                         <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
                             <button className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                                作成
+                                作成を予約する
                             </button>
                         </div>
                     </div>
