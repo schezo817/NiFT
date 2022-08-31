@@ -6,29 +6,29 @@ const MarketPlace: NextPage = () => {
         <div className="">
             <div className="text-sm breadcrumbs">
                 <ul>
-                    <Link href ={"/"}>
-                        <li><a>Home</a></li> 
+                    <Link href={"/"}>
+                        <li>
+                            <a>Home</a>
+                        </li>
                     </Link>
-                    <Link href ={"/marketplace"}>
-                        <li><a>MarketPlace</a></li> 
+                    <Link href={"/marketplace"}>
+                        <li>
+                            <a>MarketPlace</a>
+                        </li>
                     </Link>
                 </ul>
             </div>
 
             <div className="btn-group">
                 <Link href={"/marketplace/see"}>
-                    <button className="btn">
-                        SeeNiFTs
-                    </button>
+                    <button className="btn">SeeNiFTs</button>
                 </Link>
                 <Link href={"/marketplace/create"}>
-                    <button className="btn">
-                        CreateNiFTs
-                    </button>
+                    <button className="btn">CreateNiFTs</button>
                 </Link>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default MarketPlace;

@@ -37,8 +37,6 @@ const Get: NextPage = () => {
         inputRef.current?.focus();
     }, [activePinIndex]);
 
-    
-
     return (
         <div className="flex w-full justify-center items-center flex-col p-4 gap-4">
             <div className="text-center">
