@@ -34,7 +34,6 @@ const Seo = ({ pageTitle, pageUrl, pageOgImage, noIndex = false }: MetaData) => 
             <meta name="twitter:image" content={ogImage} />
             <meta name="viewport" content="width=device-width" />
             <meta name="format-detection" content="telephone=no" />
-            <meta name="theme-color" content="#65a30d" />
             {/* noIndex === true の場合のみ noindex 有効化 */}
             {noIndex && <meta name="robots" content="noindex" />}
             <link rel="shortcut icon" href="/favicon.ico" />

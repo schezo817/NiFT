@@ -1,0 +1,76 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model users {
+  uuid  String  @unique @db.Uuid // ユーザーを特定するためのUUID
+  auth  user_auth? // 認証情報
+  detail user_detail? // 詳細情報
+  flag  user_flag? // フラグ(企業かどうか等...)
+  reserved_NFTs reserved_NFTs[]
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @updatedAt
+}
+
+model user_auth {
+  uuid users @relation(fields: [user_id], references: [uuid])
+  user_id String  @unique @db.Uuid
+  email String @unique @db.VarChar(255)
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @updatedAt
+}
+
+model user_detail {
+  uuid users @relation(fields: [user_id], references: [uuid])
+  user_id String  @unique @db.Uuid
+  user_name String @db.VarChar(50) // ユーザ名
+  image_url String @db.VarChar(1024) // ユーザプロフィールのURL
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @updatedAt
+}
+
+model user_flag {
+  uuid  users @relation(fields: [user_id], references: [uuid])
+  user_id String  @unique @db.Uuid
+  is_company Boolean @default(false)
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @updatedAt
+}
+
+// Reserved NFT Model
+model reserved_NFTs {
+  uuid  String  @unique @db.Uuid // 予約されたNFTコード
+  id  users @relation(fields: [user_id], references: [uuid]) // 企業コード
+  user_id String  @db.Uuid
+  detail reserved_NFT_detail?
+  flag  reserved_NFT_flag?
+  createdAt DateTime  @default(now()) // 作成日時
+  updatedAt DateTime  @updatedAt // 更新日時
+}
+
+model reserved_NFT_detail {
+  id reserved_NFTs @relation(fields: [uuid], references: [uuid]) // NFTのUUID
+  uuid String @unique @db.Uuid 
+  name  String @db.VarChar(50) // NFTの名前
+  brand  String @db.VarChar(255) // ブランド名
+  description String @db.VarChar(1024) // NFTの説明
+  code Int @db.SmallInt // 確認コード
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @updatedAt
+}
+
+model reserved_NFT_flag {
+  id reserved_NFTs @relation(fields: [uuid], references: [uuid]) // NFTのUUID
+  uuid String @unique @db.Uuid
+  used  Boolean @default(false) @db.Boolean // 使用済かどうか
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @updatedAt
+}
