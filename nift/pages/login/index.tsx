@@ -6,7 +6,6 @@ const Login: NextPage = () => {
         <div className="hero min-h-screen bg-base-0">
             {/* Heroのコンテンツの説明 */}
             <div className="hero-content flex-col lg:flex-row-reverse">
-
                 {/* Heroの中では、テキストを中央揃えする。 */}
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Start and get NiFT!</h1>
@@ -15,10 +14,8 @@ const Login: NextPage = () => {
 
                 {/* logincardの実装 */}
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-
                     {/* １つのセットには、<label>と<input>が要素として入る。 */}
                     <div className="card-body">
-
                         {/* Email */}
                         <div className="form-control">
                             <label className="label">
@@ -46,7 +43,6 @@ const Login: NextPage = () => {
                                     Forgot password?
                                 </a>
                             </label>
-
                         </div>
 
                         {/* buttonの実装 */}
@@ -59,7 +55,6 @@ const Login: NextPage = () => {
                             </div>
                             <button className="btn btn-primary">Sign In</button>
                         </div>
-
                     </div>
                 </div>
             </div>

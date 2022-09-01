@@ -99,7 +99,9 @@ const CreateNFT = () => {
                                     ２次流通ごとに得る割合（0~3%）
                                 </label>
                                 <select className="select select-bordered w-full max-w-xs">
-                                    <option disabled selected>How much you will gain?</option>
+                                    <option disabled selected>
+                                        How much you will gain?
+                                    </option>
                                     <option>0.0</option>
                                     <option>0.5</option>
                                     <option>1.0</option>
@@ -114,7 +116,9 @@ const CreateNFT = () => {
                                     ２次流通ごとに、設定したプロジェクトに投資する割合（0~3%）
                                 </label>
                                 <select className="select select-bordered w-full max-w-xs">
-                                    <option disabled selected>How much you will send?</option>
+                                    <option disabled selected>
+                                        How much you will send?
+                                    </option>
                                     <option>0.0</option>
                                     <option>0.5</option>
                                     <option>1.0</option>

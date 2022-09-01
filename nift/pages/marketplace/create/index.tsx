@@ -25,7 +25,7 @@ const Create: NextPage = () => {
                     </Link>
                 </ul>
             </div>
-            
+
             <CreateNFT />
         </div>
     );
