@@ -4,6 +4,7 @@ import Link from "next/link";
 const Create: NextPage = () => {
     return (
         <div>
+            {/* breadcrumbsの作成 */}
             <div className="text-sm breadcrumbs">
                 <ul>
                     <Link href={"/"}>
@@ -23,6 +24,7 @@ const Create: NextPage = () => {
                     </Link>
                 </ul>
             </div>
+            {/*  */}
         </div>
     );
 };

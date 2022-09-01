@@ -9,3 +9,4 @@ docker ps -a -q -f name=nift | xargs docker rm -f
 docker run -d --name nift --restart=always -p 3000:3000 nift
 
 # backend
+# migrationは手動で行う
