@@ -75,7 +75,7 @@ contract NFTMarketplace is ERC721URIStorage, Ownable {
     //
     function createMarketItem(uint256 tokenId, uint256 price) private {
       //価格は自然数
-      require(price > 0, "Price must be at least 1 wei");
+      require(price > 0, "Price must be at least 1 money");
       //販売価格とマーケットでの価格の一致
       require(msg.value == listingPrice, "Price must be equal to listing price");
 
