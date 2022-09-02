@@ -22,11 +22,7 @@ const Navbar = () => {
                                 </a>
                             </Link>
                             <ul className="ml-2 p-2 bg-white dark:bg-base-100">
-                                <Link href={"/marketplace/see"}>
-                                    <li>
-                                        <a>See NiFTs</a>
-                                    </li>
-                                </Link>
+
                                 <Link href={"/marketplace/create"}>
                                     <li>
                                         <a>Create NiFTs</a>
@@ -66,11 +62,7 @@ const Navbar = () => {
                             </a>
                         </Link>
                         <ul className="p-2 bg-white">
-                            <Link href={"/marketplace/see"}>
-                                <li>
-                                    <a>See NiFTs</a>
-                                </li>
-                            </Link>
+
                             <Link href={"/marketplace/create"}>
                                 <li>
                                     <a>Create NiFTs</a>
