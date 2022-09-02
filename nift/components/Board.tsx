@@ -1,3 +1,5 @@
+import { Avatar } from "@chakra-ui/react"
+
 const Board = () => {
     return (
         <div className="bg-white">
@@ -12,7 +14,7 @@ const Board = () => {
                             <form className="hidden lg:block">
                                 <div className="border-b border-gray-200 py-6">
                                     <h3 className="-my-3 flow-root">
-                                        <button type="button" className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500" aria-controls="filter-section-2" aria-expanded="false">
+                                        {/* <button type="button" className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500" aria-controls="filter-section-2" aria-expanded="false">
                                             <span className="font-medium text-gray-900">
                                                 Size
                                             </span>
@@ -24,9 +26,23 @@ const Board = () => {
                                                     <path fillRule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H3.75A.75.75 0 013 10z" clipRule="evenodd" />
                                                 </svg>
                                             </span>
-                                        </button>
+                                            <div>
 
-                                        <div>text</div>
+                                            </div>
+                                        </button> */}
+
+                                        <div className="avatar">
+                                            <div className="w-48 rounded">
+                                                <img src="https://placeimg.com/192/192/people" />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            Daiki Mori
+                                        </div>
+
+                                        <div>
+                                            sheng.131216@gmail.com
+                                        </div>
 
                                     </h3>
                                 </div>
