@@ -95,6 +95,12 @@ const Navbar = () => {
                         </li>
                     </Link>
                 </ul>
+
+                <div className="avatar placeholder">
+                    <div className="bg-neutral-focus text-neutral-content rounded-full w-12">
+                        <img src="https://placeimg.com/192/192/people" />
+                    </div>
+                </div>
                 {/* <div className="btn-group"> */}
                 <Link href={"/login"}>
                     <button className="btn">
