@@ -5,6 +5,8 @@ import CreateNFT from "../../../components/CreateNFT";
 const Create: NextPage = () => {
     return (
         <div>
+<<<<<<< HEAD
+=======
             {/* breadcrumbsの作成 */}
             <div className="text-sm breadcrumbs">
                 <ul>
@@ -26,6 +28,7 @@ const Create: NextPage = () => {
                 </ul>
             </div>
 
+>>>>>>> edb92530546b00f7d9212547045307a230cf69be
             <CreateNFT />
         </div>
     );

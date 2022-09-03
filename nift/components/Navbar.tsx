@@ -14,26 +14,14 @@ const Navbar = () => {
                         tabIndex={0}
                         className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-40"
                     >
-                        <li tabIndex={0}>
-                            <Link href={"/marketplace"}>
+                        <Link href={"/marketplace"}>
+                            <li>
                                 <a>
+                                    <div className="text-xl" />
                                     <span>MarketPlace</span>
-                                    <HiChevronDown className="text-xl" />
                                 </a>
-                            </Link>
-                            <ul className="ml-2 p-2 bg-white dark:bg-base-100">
-                                <Link href={"/marketplace/see"}>
-                                    <li>
-                                        <a>See NiFTs</a>
-                                    </li>
-                                </Link>
-                                <Link href={"/marketplace/create"}>
-                                    <li>
-                                        <a>Create NiFTs</a>
-                                    </li>
-                                </Link>
-                            </ul>
-                        </li>
+                            </li>
+                        </Link>
                         <Link href={"/dashboard"}>
                             <li>
                                 <a>
@@ -66,11 +54,7 @@ const Navbar = () => {
                             </a>
                         </Link>
                         <ul className="p-2 bg-white">
-                            <Link href={"/marketplace/see"}>
-                                <li>
-                                    <a>See NiFTs</a>
-                                </li>
-                            </Link>
+
                             <Link href={"/marketplace/create"}>
                                 <li>
                                     <a>Create NiFTs</a>
