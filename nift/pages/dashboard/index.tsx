@@ -18,8 +18,6 @@ const Dashboard: NextPage = () => {
                     </Link>
                 </ul>
             </div>
-
-            
         </div>
     );
 };
