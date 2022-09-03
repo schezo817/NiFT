@@ -95,15 +95,16 @@ const Navbar = () => {
             <div className="dropdown dropdown-end">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                     <div className="w-10 rounded-full">
-                    <img src="https://placeimg.com/80/80/people" />
+                        <img src="https://placeimg.com/80/80/people" />
                     </div>
                 </label>
-                <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                <ul
+                    tabIndex={0}
+                    className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+                >
                     <Link href={"/dashboard"}>
                         <li>
-                            <a className="justify-between">
-                                DashBoard
-                            </a>
+                            <a className="justify-between">DashBoard</a>
                         </li>
                     </Link>
                     <label htmlFor="my-modal" className="btn btn-sm modal-button">

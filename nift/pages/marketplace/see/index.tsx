@@ -1,13 +1,10 @@
-import Board from "components/Board";
 import { NextPage } from "next";
 import Link from "next/link";
 
-const Dashboard: NextPage = () => {
+const Create: NextPage = () => {
     return (
         <div>
-<<<<<<< HEAD
-            <Board />
-=======
+            {/* breadcrumbsの作成 */}
             <div className="text-sm breadcrumbs">
                 <ul>
                     <Link href={"/"}>
@@ -15,16 +12,21 @@ const Dashboard: NextPage = () => {
                             <a>Home</a>
                         </li>
                     </Link>
-                    <Link href={"/dashboard"}>
+                    <Link href={"/marketplace"}>
                         <li>
-                            <a>DashBoard</a>
+                            <a>MarketPlace</a>
+                        </li>
+                    </Link>
+                    <Link href={"/marketplace/see"}>
+                        <li>
+                            <a>See</a>
                         </li>
                     </Link>
                 </ul>
             </div>
->>>>>>> edb92530546b00f7d9212547045307a230cf69be
+            {/*  */}
         </div>
     );
 };
 
-export default Dashboard;
+export default Create;
