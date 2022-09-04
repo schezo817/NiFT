@@ -12,10 +12,10 @@ const Board = () => {
                     <h1 className="text-4xl font-bold tracking-tight text-gray-900">DashBoard</h1>
                     <section aria-labelledby="products-heading" className="pt-6 pb-24">
                         {/* <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4"> */}
-                            <div className="flex flex-col w-full lg:flex-row">
+                            <div className="flex flex-col w-full lg:flex-row "> {/* lg:flex-row */}
                                 <div className="py-8 px-8 max-w-sm mx-auto bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6">
                                     <img className="block mx-auto h-24 rounded-full sm:mx-0 sm:shrink-0" src="https://placeimg.com/192/192/people" alt="Woman's Face" />
-                                    <div className="text-center space-y-2 sm:text-left">
+                                    <div className="text-center space-y-2 sm:text-left"> {/* sm:text-left*/}
                                         <div className="space-y-0.5">
                                             <p className="text-lg text-black font-semibold">
                                                 Erin Lindford
@@ -28,15 +28,9 @@ const Board = () => {
                                     </div>
                                 </div>
 
-                                    {/* <div className="form-control">
-                                        <label className="label cursor-pointer">
-                                            <span className="label-text">Remember me</span> 
-                                            <input type="checkbox" className="toggle" />
-                                        </label>
-                                    </div> */}
-                                    {/* <div className="card-body"></div> */}
+
                                 <div className="divider lg:divider-horizontal" />
-                                    <div className="lg:col-span-3">
+                                <div className="lg:col-span-3">
                                     <div>textarea</div>
                                     <div>欲しい情報</div>
                                     <div>ユーザー画像</div>
