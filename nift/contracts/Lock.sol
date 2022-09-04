@@ -8,9 +8,7 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
-import "@openzeppelin/contracts/access/Ownable.sol";
-
-contract NFTMarketplace is ERC721URIStorage, Ownable {
+contract NFTMarketplace is ERC721URIStorage {
     //NFTを作るのに必要なコンテナ(?) インクリメント・デクリメントのみできるデータ型
     using Counters for Counters.Counter;
 
