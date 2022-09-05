@@ -3,43 +3,48 @@ import { Avatar } from "@chakra-ui/react"
 const Board = () => {
     return (
         <div className="bg-white">
-            <div>
-                <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    {/* <div className="flex items-baseline justify-between border-b border-gray-200 pt-24 pb-6">
-                        <h1 className="text-4xl font-bold tracking-tight text-gray-900">DashBoard</h1>
-                    </div> */}
+                <main className=""> {/*max-w-7xl mx-auto */}
 
-                    <h1 className="text-4xl font-bold tracking-tight text-gray-900">DashBoard</h1>
-                    <section aria-labelledby="products-heading" className="pt-6 pb-24">
-                        {/* <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4"> */}
-                            <div className="flex flex-col w-full lg:flex-row "> {/* lg:flex-row */}
-                                <div className="py-8 px-8 max-w-sm mx-auto bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6">
-                                    <img className="block mx-auto h-24 rounded-full sm:mx-0 sm:shrink-0" src="https://placeimg.com/192/192/people" alt="Woman's Face" />
-                                    <div className="text-center space-y-2 sm:text-left"> {/* sm:text-left*/}
-                                        <div className="space-y-0.5">
-                                            <p className="text-lg text-black font-semibold">
-                                                Erin Lindford
-                                            </p>
-                                            <p className="text-slate-500 font-medium">
-                                                Product Engineer
-                                            </p>
+                    {/* DashBoard */}
+                    <h1 className="px-4 text-4xl font-bold tracking-tight text-gray-900">DashBoard</h1> {/* tracking-tight：文字の間隔を狭くする。 */}
+
+
+                    {/* 内容を丸ごと囲うsection */}
+                    <section className="pt-6 pb-24 bg-red-800" aria-labelledby="products-heading" > {/* pb-24 */}
+                        {/*  */}
+                            <div className="bg-slate-600"> {/* flex row-auto w-full：　　flex-col lg:flex-row */}
+                                {/* 左側のコラム ：大きさ1/4 背景色：bg-slate-100 */}
+                                
+                                <div className="basis-1/4"> {/* bg-slate-100 */}
+                                    {/* プロフィールコンポーネントについて */}
+                                    <div className="py-8 px-8 bg-white rounded-xl shadow-lg space-y-2 "> {/* max-w-sm mx-auto sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6 */}
+                                        <img className="block mx-auto h-24 rounded-full sm:mx-0 sm:shrink-0" src="https://placeimg.com/192/192/people" alt="Woman's Face" />
+                                        <div className="text-center space-y-2 sm:text-left"> {/* sm:text-left*/}
+                                            <div className="space-y-0.5">
+                                                <p className="text-lg text-black font-semibold">
+                                                    Erin Lindford
+                                                </p>
+                                                <p className="text-slate-500 font-medium">
+                                                    Product Engineer
+                                                </p>
+                                            </div>
+                                            <button className="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">Message</button>
                                         </div>
-                                        <button className="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">Message</button>
                                     </div>
                                 </div>
 
 
-                                <div className="divider lg:divider-horizontal" />
-                                <div className="lg:col-span-3">
-                                    <div>textarea</div>
-                                    <div>欲しい情報</div>
-                                    <div>ユーザー画像</div>
-                                    <div>名前</div>
-                                    <div>メールアドレス</div>
-                                    <div>持っているNFTコレクション</div>
-                                    {/* 左側の設定 */}
-                                    <div className="h-96 rounded-lg lg:h-full">
+                                {/* 左側の設定 */}
+                                <div className="">
+                                    {/* gridの設定 */}
+                                    <div className="grid grid-cols-4 gap-4 rounded-lg">{/*グリッドにした方が良い。lg:h-full"*/}
                                         {/* カードコンポーネント */}
+                                        <div className="card w-96 bg-base-100 shadow-xl">
+                                            <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
+                                        </div>
+                                        <div className="card w-96 bg-base-100 shadow-xl">
+                                            <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
+                                        </div>
                                         <div className="card w-96 bg-base-100 shadow-xl">
                                             <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
                                         </div>
@@ -49,7 +54,6 @@ const Board = () => {
                         {/* </div> */}
                     </section>
                 </main>
-            </div>
         </div>
     );
 };
