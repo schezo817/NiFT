@@ -5,13 +5,13 @@ import Link from "next/link";
 
 const Home: NextPage = () => {
     return (
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero min-h-screen bg-gradient-to-r from-indigo-800 to-pink-500 text-white">
             <div className="hero-content flex-col lg:flex-row-reverse">
-                <div className="bg-white">
+                <div className="">
                     <div className="mx-auto grid max-w-2xl grid-cols-1 items-center gap-y-16 gap-x-8 py-24 px-4 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
                         <div>
                             <div>
-                                <span className="box-decoration-clone bg-gradient-to-r text-5xl font-bold from-indigo-600 to-pink-500 text-white ...">
+                                <span className="box-decoration-clone bg-gradient-to-r text-5xl font-bold from-indigo-400 to-pink-500 text-white ...">
                                     NiFT | a gift with NFT
                                 </span>
                                 <p className="py-6"> Buy and sell NFT gifts.</p>
