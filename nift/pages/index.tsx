@@ -1,28 +1,26 @@
 import { NextPage } from "next";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 
 const Home: NextPage = () => {
     return (
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero min-h-screen bg-gradient-to-r from-indigo-800 to-pink-500 text-white">
             <div className="hero-content flex-col lg:flex-row-reverse">
-                <img
-                    src={"https://placeimg.com/260/400/arch"}
-                    className="max-w-sm rounded-lg shadow-2xl"
-                />
-                <div className="bg-white">
+                <div className="">
                     <div className="mx-auto grid max-w-2xl grid-cols-1 items-center gap-y-16 gap-x-8 py-24 px-4 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
                         <div>
-                            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                                Technical Specifications
-                            </h2>
-                            <p className="mt-4 text-gray-500">
-                                The walnut wood card tray is precision milled to perfectly fit a
-                                stack of Focus cards. The powder coated steel divider separates
-                                active cards from new ones, or can be used to archive important task
-                                lists.
-                            </p>
-
+                            <div>
+                                <span className="box-decoration-clone bg-gradient-to-r text-5xl font-bold from-indigo-400 to-pink-500 text-white ...">
+                                    NiFT | a gift with NFT
+                                </span>
+                                <p className="py-6"> Buy and sell NFT gifts.</p>
+                                <div>
+                                    <Link href={"/marketplace"}>
+                                        <button className="btn btn-primary">Go MarketPlace</button>
+                                    </Link>
+                                </div>
+                            </div>
                             <dl className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
                                 <div className="border-t border-gray-200 pt-4">
                                     <dt className="font-medium text-gray-900">Origin</dt>
@@ -93,13 +91,6 @@ const Home: NextPage = () => {
                             />
                         </div>
                     </div>
-                </div>
-                <div>
-                    <h1 className="text-5xl font-bold">NiFT | a gift with NFT</h1>
-                    <p className="py-6"> Buy and sell NFT gifts.</p>
-                    <Link href={"/marketplace"}>
-                        <button className="btn btn-primary">Go MarketPlace</button>
-                    </Link>
                 </div>
             </div>
         </div>
