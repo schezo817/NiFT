@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { HiChevronDown } from "react-icons/hi";
-import {AiOutlineGift} from "react-icons/ai";
+import { AiOutlineGift } from "react-icons/ai";
 import { MdLogin, MdOutlineHome, MdOutlineInfo, MdMenu } from "react-icons/md";
 
 const Navbar = () => {
@@ -26,7 +26,7 @@ const Navbar = () => {
                         <Link href={"/dashboard"}>
                             <li>
                                 <a>
-                                    <MdOutlineHome   className="text-xl" />
+                                    <MdOutlineHome className="text-xl" />
                                     <span>Dashboard</span>
                                 </a>
                             </li>
@@ -57,7 +57,6 @@ const Navbar = () => {
                             </a>
                         </Link>
                         <ul className="p-2 bg-white">
-
                             <Link href={"/dashboard/nft/create"}>
                                 <li>
                                     <a>Create NiFTs</a>
