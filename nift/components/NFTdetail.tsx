@@ -36,11 +36,14 @@ const NFTdetail = () => {
                 <div className="space-y-6">
                   <p className="text-base text-gray-900">The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: &quot;Black&quot;. Need to add an extra pop of color to your outfit? Our white tee has you covered.</p>
                 </div>
-      
-                <button type="submit" className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Buy Now</button>
+
+                <div className="mb-10">
+                  <button type="submit" className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Buy Now</button>
+                </div>
               </form>
             </div>
 
+            {/* Price fluctuation table */}
             <div className="col-span-2">
               <div className="overflow-x-auto w-full ">
                 <table className="table w-full">
@@ -91,11 +94,11 @@ const NFTdetail = () => {
                     </tr>
                     {/* <!-- row 2 --> */}
                     <tr>
-                      <th>
+                      {/* <th>
                         <label>
                           <input type="checkbox" className="checkbox" />
                         </label>
-                      </th>
+                      </th> */}
                       <td>
                         <div className="flex items-center space-x-3">
                           <div className="avatar">
