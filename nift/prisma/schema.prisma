@@ -15,7 +15,7 @@ model users {
 
   user_auth user_auth?
   user_detail user_detail?
-  user_flag user_flag?
+  user_flag user_status?
   reserved_nfts reserved_nfts[]
 
   created_at  DateTime  @default(now())
@@ -27,6 +27,7 @@ model user_auth {
   user_id String  @unique @db.Uuid
 
   email String @unique @db.VarChar(255)
+  wallet_address String? @db.VarChar(255) // ウォレットアドレス
 
   created_at  DateTime  @default(now())
   updated_at  DateTime  @updatedAt
@@ -43,7 +44,7 @@ model user_detail {
   updated_at  DateTime  @updatedAt
 }
 
-model user_flag {
+model user_status {
   foreign_id users @relation(fields: [user_id], references: [user_id])
   user_id String  @unique @db.Uuid
 
@@ -100,10 +101,10 @@ model series_detail {
   foreign_id reserved_nfts @relation(fields: [series_id], references: [series_id])
   series_id String @unique @db.Uuid
 
-  brand_name  String @db.VarChar(255)
-  description  String @db.VarChar(255)
-  royalty_first  Int @db.Integer
-  royalty_second  Int @db.Integer
+  nft_name String @db.VarChar(255) // NFTの名前
+  brand_name  String @db.VarChar(255) // ブランド名
+  description  String @db.VarChar(255) // NFTの説明
+  royalty_first  Decimal @db.Decimal(6,3) // NFTの流通によって得られるロイアリティの割合
 
   created_at  DateTime  @default(now())
   updated_at  DateTime  @updatedAt
@@ -131,5 +132,3 @@ model nft_status {
   created_at  DateTime  @default(now())
   updated_at  DateTime  @updatedAt
 }
-
-
