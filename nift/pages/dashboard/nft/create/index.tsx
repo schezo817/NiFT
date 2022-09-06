@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import Link from "next/link";
-import NFTCard from "components/NFTCard";
+import NFTPreview from "components/NFTPreview";
 
 const Create: NextPage = () => {
     return (
@@ -12,7 +12,7 @@ const Create: NextPage = () => {
                         <p className="mt-1 text-sm text-gray-600">
                             プレビュー
                         </p>
-                        <NFTCard />
+                        <NFTPreview />
                     </div>
                 </div>
                 <div className="mt-5 md:col-span-2 md:mt-0 p-4">
