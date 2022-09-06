@@ -5,7 +5,7 @@ const MarketPlace: NextPage = () => {
     return (
         <div>
             {/* 保持している or していたNFTの情報 */}
-            <div className="mt-6 grid grid-cols-2 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+            <div className="mt-6 grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">
                 <NFTCard />
                 <NFTCard />
                 <NFTCard />
