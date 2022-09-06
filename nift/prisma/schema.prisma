@@ -15,7 +15,7 @@ model users {
 
   user_auth user_auth?
   user_detail user_detail?
-  user_flag user_flag?
+  user_flag user_status?
   reserved_nfts reserved_nfts[]
 
   created_at  DateTime  @default(now())
@@ -44,7 +44,7 @@ model user_detail {
   updated_at  DateTime  @updatedAt
 }
 
-model user_flag {
+model user_status {
   foreign_id users @relation(fields: [user_id], references: [user_id])
   user_id String  @unique @db.Uuid
 
