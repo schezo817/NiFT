@@ -5,9 +5,10 @@ const Board = () => {
         // 一番大きな箱を返す。
         <div className="bg-white">
             {/* text: DashBoard */}
-            <h1 className="px-4 text-4xl font-bold tracking-tight text-gray-900">
-                DashBoard
-            </h1>
+            <div className="min-w-fit">
+                <img src="https://placeimg.com/800/200/arch" className="w-screen object-cover" />
+            </div>
+            <img src="https://placeimg.com/192/192/people" alt="icon" className="w-20 -translate-y-6 h-24 rounded-full"/>
 
             {/* body: */}
             <div className="grid grid-cols-4">
