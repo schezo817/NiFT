@@ -3,23 +3,15 @@ import { NextPage } from "next";
 const Login: NextPage = () => {
     return (
         // Heroの作成
-        <div className="hero min-h-screen bg-base-100">
-            <div className="hero-content flex-col lg:flex-row-reverse">
-                <div className="text-center lg:text-left p-4">
-                    <h1 className="text-5xl font-bold">Start and get NiFT!</h1>
-                    <p className="py-10">Start NiFT | NFT + gift</p>
-                </div>
-
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-xl bg-base-100 p-4">
-                    <div className="card-body">
-                        <div className="form-control mt-6 justify-items-center">
-                            <button className="btn btn-primary shadow-lg shadow-cyan-500/50">Log in</button>
-                            <div className="text-center">
-                                <span className="label-text">
-                                    let&apos;s create Account and get NFT!
-                                </span>
-                            </div>
-                            <button className="btn btn-primary">Sign In</button>
+        <div className="container mx-auto px-4">
+            <div className="h-screen flex justify-center items-center">
+                <div className="card lg:card-side bg-base-100 shadow-xl">
+                    <figure><img src="https://placeimg.com/400/400/arch" className="object-cover w-full max-h-60 sm:max-h-96" /></figure>
+                    <div className="card-body max-w-96">
+                        <h2 className="card-title text-5xl">Start and get NiFT!</h2>
+                        <p className="py-2">NiFT | NFT + gift</p>
+                        <div className="card-actions w-full justify-center">
+                            <button className="btn w-full my-2 btn-primary">Googleでログイン</button>
                         </div>
                     </div>
                 </div>
