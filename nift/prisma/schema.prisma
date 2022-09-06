@@ -27,6 +27,7 @@ model user_auth {
   user_id String  @unique @db.Uuid
 
   email String @unique @db.VarChar(255)
+  wallet_address String? @db.VarChar(255) // ウォレットアドレス
 
   created_at  DateTime  @default(now())
   updated_at  DateTime  @updatedAt
@@ -38,7 +39,6 @@ model user_detail {
 
   user_name String @db.VarChar(50) // ユーザ名
   image_url String @db.VarChar(1024) // ユーザプロフィールのURL
-  wallet_address String? @db.VarChar(255) // ウォレットアドレス
 
   created_at  DateTime  @default(now())
   updated_at  DateTime  @updatedAt
