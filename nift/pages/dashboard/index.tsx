@@ -1,12 +1,11 @@
-import Board from "components/Board";
 import { NextPage } from "next";
-import Link from "next/link";
+import Board from "components/Board";
 
 const Dashboard: NextPage = () => {
     return (
-        <div>
+        <>
             <Board />
-        </div>
+        </>
     );
 };
 
