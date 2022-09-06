@@ -37,9 +37,21 @@ const NFTCard = () => {
                                 <p className="text-sm font-medium text-gray-900">$35</p>
                             </div>
                         </div>
+                    {/* 商品説明 */}
+                    <div className="mt-4 flex justify-between">
+                        <div>
+                            <h3 className="text-sm text-gray-700">
+                                <a href="#">
+                                    <span aria-hidden="true" className="absolute inset-0"></span>
+                                    Basic Tee
+                                </a>
+                            </h3>
+                            <p className="mt-1 text-sm text-gray-500">Black</p>
+                        </div>
+                        <p className="text-sm font-medium text-gray-900">$35</p>
                     </div>
-                </Link>
-            </div>
+                </div>
+            </Link>
         </div>
     );
 };

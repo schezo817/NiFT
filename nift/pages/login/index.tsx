@@ -47,7 +47,7 @@ const Login: NextPage = () => {
 
                         {/* buttonの実装 */}
                         <div className="form-control mt-6 justify-items-center">
-                            <button className="btn btn-primary">Log in</button>
+                            <button className="btn btn-primary shadow-lg shadow-cyan-500/50">Log in</button>
                             <div className="text-center ">
                                 <span className="label-text">
                                     let&apos;s create Account and get NFT!
