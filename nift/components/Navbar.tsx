@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { HiChevronDown } from "react-icons/hi";
-import { AiOutlineGift } from "react-icons/ai";
-import { MdLogin, MdOutlineHome, MdOutlineInfo, MdMenu } from "react-icons/md";
+import { AiOutlineGift, AiOutlineShop, AiOutlinePlusSquare } from "react-icons/ai";
+import { MdLogin, MdOutlineHome, MdMenu } from "react-icons/md";
 
 const Navbar = () => {
     return (
@@ -18,7 +18,7 @@ const Navbar = () => {
                         <Link href={"/marketplace"}>
                             <li>
                                 <a>
-                                    <div className="text-xl" />
+                                    <AiOutlineShop className="text-xl" />
                                     <span>MarketPlace</span>
                                 </a>
                             </li>
@@ -39,34 +39,36 @@ const Navbar = () => {
             </div>
 
             <div className="navbar-end justify-self-auto gap-x-2">
-                <ul className="menu menu-horizontal p-0 hidden lg:flex">
+                <ul className="menu menu-horizontal p-0 hidden lg:flex gap-x-2">
                     <Link href={"/marketplace"}>
                         <li>
-                            <a>
-                                <MdOutlineHome className="text-xl" />
+                            <a className="align-center">
+                                <AiOutlineShop className="text-xl" />
                                 <span>MarletPlace</span>
                             </a>
                         </li>
                     </Link>
                     <li tabIndex={0}>
                         <Link href={"/dashboard"}>
-                            <a>
+                            <a className="align-center">
                                 <MdOutlineHome className="text-xl" />
                                 <span>DashBoard</span>
                                 <HiChevronDown className="text-xl" />
                             </a>
                         </Link>
-                        <ul className="p-2 bg-white">
+                        <ul className="bg-white w-full">
                             <Link href={"/dashboard/nft/create"}>
                                 <li>
-                                    <a>Create NiFTs</a>
+                                    <a>
+                                        <AiOutlinePlusSquare className="text-xl" />
+                                        <span>Create NiFTs</span>
+                                    </a>
                                 </li>
                             </Link>
                         </ul>
                     </li>
                 </ul>
 
-                {/* ボタン */}
                 <Link href={"/login"}>
                     <button className="btn items-center btn-primary">
                         <MdLogin className="text-xl" />
@@ -89,10 +91,10 @@ const Navbar = () => {
                 </label>
                 <ul
                     tabIndex={0}
-                    className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+                    className="menu menu-compact dropdown-content mt-3 p-2 w-52 shadow bg-base-100 rounded-box"
                 >
                     <Link href={"/dashboard"}>
-                        <li>
+                        <li className="mb-2">
                             <a className="justify-between">DashBoard</a>
                         </li>
                     </Link>
