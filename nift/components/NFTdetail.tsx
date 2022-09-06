@@ -23,9 +23,11 @@ const NFTdetail = () => {
               <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
                 <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Basic Tee 6-Pack</h1>
               </div>
-              <div className="mt-1">
-              <h1 className="text-2xl tracking-tight text-gray-900 sm:text-xl">Leonardo da Vinci</h1>
-              </div>
+              <Link href={"/marketplace/brand"}>
+                <div className="mt-1">
+                <h1 className="text-2xl link link-primary tracking-tight text-gray-900 sm:text-xl">Leonardo da Vinci</h1>
+                </div>
+              </Link>
               <div className="mt-5">
                 <p className="text-3xl tracking-tight text-gray-900">$192</p>
               </div>

@@ -1,5 +1,4 @@
 import { NextPage } from "next";
-import Link from "next/link";
 import NFTCard from "../../components/NFTCard";
 
 const MarketPlace: NextPage = () => {
