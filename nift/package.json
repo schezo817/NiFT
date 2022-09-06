@@ -2,6 +2,7 @@
     "name": "frontend",
     "version": "0.1.0",
     "private": true,
+    "license": "UNLICENSED",
     "scripts": {
         "dev": "next dev",
         "build": "next build",
@@ -10,7 +11,10 @@
         "lint:check": "prettier --check --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'",
         "lint:fix": "yarn lint --fix",
         "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'",
-        "db:migrate": "prisma migrate dev --preview-feature"
+        "db:migrate": "prisma migrate dev --preview-feature",
+        "test": "hardhat test test/Lock.js --network localhost",
+        "localchain": "hardhat node",
+        "deploy": "hardhat run scripts/Lock.js --network localhost"
     },
     "dependencies": {
         "@headlessui/react": "^1.6.6",
@@ -20,6 +24,7 @@
         "daisyui": "^2.24.0",
         "dotenv": "^16.0.2",
         "next": "^12.2.5",
+        "next-auth": "^4.10.3",
         "react": "^18.2.0",
         "react-dom": "18.2.0",
         "react-gtm-module": "^2.0.11",

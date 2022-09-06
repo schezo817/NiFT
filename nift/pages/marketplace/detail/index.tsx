@@ -4,9 +4,9 @@ import NFTdetail from "../../../components/NFTdetail";
 
 const Detail: NextPage = () => {
     return (
-      <div>
-          <NFTdetail />
-      </div>
+        <div>
+            <NFTdetail />
+        </div>
     );
 };
 
