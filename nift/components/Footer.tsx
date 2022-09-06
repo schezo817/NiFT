@@ -4,8 +4,7 @@ import { FaGithub, FaTwitter } from "react-icons/fa";
 const Footer = () => {
     return (
         <div className="footer p-8 bg-base-200 text-base-content max-w-full ">
-            <div>
-            </div>
+            <div></div>
             <div>
                 <span className="footer-title">Service</span>
                 <Link href={"/marketplace"}>
