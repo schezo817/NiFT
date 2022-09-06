@@ -104,7 +104,7 @@ model series_detail {
   nft_name String @db.VarChar(255) // NFTの名前
   brand_name  String @db.VarChar(255) // ブランド名
   description  String @db.VarChar(255) // NFTの説明
-  royalty_first  Int @db.Integer
+  royalty_first  Decimal @db.Decimal(6,3) // NFTの流通によって得られるロイアリティの割合
 
   created_at  DateTime  @default(now())
   updated_at  DateTime  @updatedAt
