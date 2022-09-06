@@ -11,9 +11,9 @@ const Home: NextPage = () => {
                     <div className="mx-auto grid max-w-2xl grid-cols-1 items-center gap-y-16 gap-x-8 py-24 px-4 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
                         <div>
                             <div>
-                                <span className="box-decoration-clone bg-gradient-to-r text-5xl font-bold from-indigo-400 to-pink-500 text-white ...">
+                                <div className="box-decoration-clone bg-gradient-to-r text-5xl font-bold from-indigo-400 to-pink-500 text-white ...">
                                     NiFT | a gift with NFT
-                                </span>
+                                </div>
                                 <p className="py-6"> Buy and sell NFT gifts.</p>
                                 <div>
                                     <Link href={"/marketplace"}>

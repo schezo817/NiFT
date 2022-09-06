@@ -44,7 +44,7 @@ const Navbar = () => {
                         <li>
                             <a>
                                 <MdOutlineHome className="text-xl" />
-                                <span>MarletPlace</span>
+                                <span>MarketPlace</span>
                             </a>
                         </li>
                     </Link>
@@ -100,6 +100,17 @@ const Navbar = () => {
                         Logout
                     </label>
                 </ul>
+            </div>
+
+            {/* ログアウト確定モーダル */}
+            {/* id をmy-modalに変更する。 */}
+            <input type="checkbox" id="my-modal" className="modal-toggle" />
+            <div className="modal">
+                <div className="modal-box relative">
+                    <label htmlFor="my-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <h3 className="text-lg font-bold">あなたはログアウトしようとしています</h3>
+                    <button className="mt-3 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 btn">Log Out</button>
+                </div>
             </div>
         </div>
     );
