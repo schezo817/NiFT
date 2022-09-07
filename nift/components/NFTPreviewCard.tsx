@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { NFTPreview } from "types/nfts";
-import { checkIfImages } from "utils/checkIfImages";
 
 type NFTPreviewProps = NFTPreview;
 
