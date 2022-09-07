@@ -10,8 +10,8 @@ const NFTPreviewCard = (props: NFTPreviewProps) => {
                     <div className="group relative">
                         <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
                             <img
-                                src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
-                                alt="Front of men&#039;s Basic Tee in black."
+                                src={props.image_url}
+                                alt={props.nft_name}
                                 className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                             />
                         </div>
@@ -28,7 +28,7 @@ const NFTPreviewCard = (props: NFTPreviewProps) => {
                                 </h3>
                                 <p className="mt-1 text-sm text-gray-500">{props.brand_name}</p>
                             </div>
-                            <p className="text-sm font-medium text-gray-900">${props.price}</p>
+                            <p className="text-sm font-medium text-gray-900">ETH {props.price}</p>
                         </div>
                     </div>
                 </div>
