@@ -1,6 +1,6 @@
 export interface reserved_nfts {
     user_id: string;
-    serie_id: string;
+    series_id: string;
 }
 
 export interface series_nfts {
@@ -62,4 +62,22 @@ export interface NFTCreation {
     veryrare_image_url: string;
 
     royalty: string;
+}
+
+export interface NFT {
+    nft_id: string; // スマートコントラクトから取得されるNFTのID
+    nft_name: string; // 表示名
+
+    series_id: string; // シリーズのID
+    brand_name: string; // ブランド名
+
+    description: string; // ブランドの説明
+    image_url: string; // 画像のURL
+
+    price: number; // ETHの価格
+    wallet_address: string; // 所有者のWalletAddress
+}
+
+export interface MarketNFT {
+    nfts: Array<NFT>;
 }
