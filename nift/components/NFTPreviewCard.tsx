@@ -4,7 +4,9 @@ import { NFTPreview } from "types/nfts";
 type NFTPreviewProps = NFTPreview;
 
 const NFTPreviewCard = (props: NFTPreviewProps) => {
-    const [imageUrl, setImageUrl] = useState("https://placehold.jp/570df8/ffffff/400x400.png?text=400x400");
+    const [imageUrl, setImageUrl] = useState(
+        "https://placehold.jp/570df8/ffffff/400x400.png?text=400x400",
+    );
 
     useEffect(() => {
         const exec = async () => {
@@ -12,11 +14,11 @@ const NFTPreviewCard = (props: NFTPreviewProps) => {
             img.src = props.image_url;
             img.onload = () => {
                 setImageUrl(props.image_url);
-            }
+            };
             img.onerror = () => {
                 setImageUrl("https://placehold.jp/570df8/ffffff/400x400.png?text=400x400");
-            }
-        }
+            };
+        };
         exec();
     }, [props.image_url]);
 

@@ -1,4 +1,3 @@
-
 const NFTdetail = () => {
     return (
         <div className="bg-white">
