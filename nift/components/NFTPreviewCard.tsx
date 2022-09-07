@@ -1,4 +1,8 @@
-const NFTPreview = () => {
+import { NFTPreview } from "types/nfts";
+
+type NFTPreviewProps = NFTPreview;
+
+const NFTPreviewCard = (props: NFTPreviewProps) => {
     return (
         <div className="bg-white">
             <div className="mx-auto max-w-2xl py-8 px-4 sm:py-12 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -16,13 +20,15 @@ const NFTPreview = () => {
                             <div>
                                 <h3 className="text-sm text-gray-700">
                                     <span aria-hidden="true" className="absolute inset-0">
-                                        商品説明
+                                        {props.description}
                                     </span>
-                                    ベーシックTシャツ
+                                    <span>
+                                        {props.nft_name}
+                                    </span>
                                 </h3>
-                                <p className="mt-1 text-sm text-gray-500">Black</p>
+                                <p className="mt-1 text-sm text-gray-500">{props.brand_name}</p>
                             </div>
-                            <p className="text-sm font-medium text-gray-900">$35</p>
+                            <p className="text-sm font-medium text-gray-900">${props.price}</p>
                         </div>
                     </div>
                 </div>
@@ -31,4 +37,4 @@ const NFTPreview = () => {
     );
 };
 
-export default NFTPreview;
+export default NFTPreviewCard;

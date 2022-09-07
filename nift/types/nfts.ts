@@ -37,3 +37,29 @@ export interface nft_status {
     nft_code: number;
     is_used: boolean;
 }
+
+///
+
+export interface NFTPreview {
+    nft_name: string;
+    brand_name: string;
+    description: string;
+    image_url: string;
+    price: number;
+}
+
+export interface NFTCreation {
+    nft_name: string;
+    brand_name: string;
+    description: string;
+
+    total_lots: number;
+    rare_lots: number;
+    veryrare_lots: number;
+
+    common_image_url: string;
+    rare_image_url: string;
+    veryrare_image_url: string;
+
+    royalty: string;
+}
