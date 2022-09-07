@@ -13,7 +13,7 @@ const NFTdetail = () => {
 
 
           {/* <!-- Product info --> */}
-          <div className="mx-auto max-w-2xl px-4 pt-10 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pt-16 lg:pb-24">
+          <div className="mx-auto max-w-2xl px-4 pt-10 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pt-16 lg:pb-24">
             <div className="aspect-w-4 aspect-h-5 sm:overflow-hidden sm:rounded-lg lg:aspect-w-3 lg:aspect-h-4">
               <img src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg" alt="Model wearing plain white basic tee." className="h-full w-full object-cover object-center"/>
             </div>
@@ -23,9 +23,11 @@ const NFTdetail = () => {
               <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
                 <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Basic Tee 6-Pack</h1>
               </div>
-              <div className="mt-1">
-              <h1 className="text-2xl tracking-tight text-gray-900 sm:text-xl">Leonardo da Vinci</h1>
-              </div>
+              <Link href={"/marketplace/brand"}>
+                <div className="mt-1">
+                <h1 className="text-2xl link link-primary tracking-tight text-gray-900 sm:text-xl">Leonardo da Vinci</h1>
+                </div>
+              </Link>
               <div className="mt-5">
                 <p className="text-3xl tracking-tight text-gray-900">$192</p>
               </div>
