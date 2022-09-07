@@ -38,31 +38,31 @@ const Get: NextPage = () => {
     }, [activePinIndex]);
 
     return (
-        <div className="flex w-full justify-center items-center flex-col p-4 gap-4">
+        <div className="flex w-full justify-center items-center flex-col p-4 gap-4 bg-gradient-to-r from-indigo-800 to-pink-500">
             <div className="text-center">
-                <h1 className="text-2xl font-bold p-4">NFT取得</h1>
-                <p>NFTを取得するためには配布されたQRコードを読み取り、アクセスしてください</p>
+                <h1 className="text-2xl font-bold text-white p-4">NFT取得</h1>
+                <p className="text-white mb-4">NFTを取得するためには配布されたQRコードを読み取り、アクセスしてください</p>
                 <div className="flex justify-center gap-4">
-                    <div className="badge badge-primary">NiFT Official</div>
+                    <div className="badge badge-primary text-white">NiFT Official</div>
                 </div>
             </div>
             <div className="text-center">
-                <h1 className="text-2xl font-bold p-4">NFT取得</h1>
-                <p>以下のNFTを取得しようとしています</p>
+                <h1 className="text-2xl font-bold text-white p-4">NFT取得</h1>
+                <p className="text-white mb-4">以下のNFTを取得しようとしています</p>
                 <div className="flex justify-center gap-4">
-                    <div className="badge badge-primary">NiFT Official</div>
+                    <div className="badge badge-primary text-white">NiFT Official</div>
                 </div>
             </div>
             <hr />
-            <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card glass w-96 shadow-xl">
                 <div className="card-body">
-                    <h2 className="card-title">コードチェック</h2>
-                    <p>
+                    <h2 className="card-title text-white">コードチェック</h2>
+                    <p className=" text-white">
                         QRコードと一緒に書かれている
                         <br />
                         確認の4桁の数字を入力してください
                     </p>
-                    <div className="flex justify-center p-4">
+                    <div className="flex justify-center p-4 white">
                         {pinCode.map((v, i) => {
                             return (
                                 <React.Fragment key={i}>
