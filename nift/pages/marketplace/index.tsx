@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import { MarketNFT } from "types/nfts";
 import { useState } from "react";
 import { nftItemsTest } from "toy/nftItemsTest";
-import NFTCard from "components/NFTCard";
+import NFTMarketCard from "components/NFTMarketCard";
 
 const MarketPlace: NextPage = () => {
     const [marketNFT, setMarketNFT] = useState<MarketNFT>(nftItemsTest);
@@ -13,7 +13,7 @@ const MarketPlace: NextPage = () => {
             <div className="mt-6 grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">
                 {marketNFT?.nfts.map((v, i) => {
                     return (
-                        <NFTCard
+                        <NFTMarketCard
                             nft_id={v.nft_id}
                             nft_name={v.nft_name}
                             series_id={v.series_id}

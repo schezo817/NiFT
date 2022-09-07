@@ -1,5 +1,5 @@
 import Link from "next/link";
-import NFTCard from "./NFTCard";
+import NFTMarketCard from "./NFTMarketCard";
 
 const Board = () => {
     return (
