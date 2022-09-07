@@ -5,7 +5,6 @@ import { NFTCreation } from "types/nfts";
 import NFTPreviewCard from "components/NFTPreviewCard";
 
 const Create: NextPage = () => {
-
     const [states, setStates] = useState<NFTCreation>({
         nft_name: "",
         brand_name: "",
@@ -16,14 +15,15 @@ const Create: NextPage = () => {
         common_image_url: "",
         rare_image_url: "",
         veryrare_image_url: "",
-        royalty: "0.0"
+        royalty: "0.0",
     });
 
-    const handleState = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const handleState = (
+        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+    ) => {
         const { name, value } = e.target;
         setStates({ ...states, [name]: value });
-    }
-
+    };
 
     return (
         <div>
@@ -31,9 +31,7 @@ const Create: NextPage = () => {
                 <div className="md:col-span-1">
                     <div className="mt-5 px-4">
                         <h3 className="text-lg font-medium leading-6 text-gray-900">NFTを作成</h3>
-                        <p className="mt-1 text-sm text-gray-600">
-                            プレビュー
-                        </p>
+                        <p className="mt-1 text-sm text-gray-600">プレビュー</p>
                         <NFTPreviewCard
                             nft_name={states.nft_name}
                             brand_name={states.brand_name}
@@ -54,7 +52,9 @@ const Create: NextPage = () => {
                                     type="text"
                                     value={states.nft_name}
                                     name={"nft_name"}
-                                    onChange={(e) => { handleState(e) }}
+                                    onChange={(e) => {
+                                        handleState(e);
+                                    }}
                                     placeholder="名前を入力"
                                     className="input input-bordered w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                 />
@@ -67,7 +67,9 @@ const Create: NextPage = () => {
                                     type="text"
                                     value={states.brand_name}
                                     name={"brand_name"}
-                                    onChange={(e) => { handleState(e) }}
+                                    onChange={(e) => {
+                                        handleState(e);
+                                    }}
                                     placeholder="ブランド名を入力"
                                     className="input input-bordered w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                 />
@@ -83,7 +85,9 @@ const Create: NextPage = () => {
                                     <textarea
                                         value={states.description}
                                         name={"description"}
-                                        onChange={(e) => { handleState(e) }}
+                                        onChange={(e) => {
+                                            handleState(e);
+                                        }}
                                         className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                         placeholder="説明を入力"
                                     />
@@ -98,7 +102,9 @@ const Create: NextPage = () => {
                                         type="number"
                                         value={states.total_lots}
                                         name={"total_lots"}
-                                        onChange={(e) => { handleState(e) }}
+                                        onChange={(e) => {
+                                            handleState(e);
+                                        }}
                                         min={0}
                                         max={1000}
                                         placeholder="全体の発行枚数を入力"
@@ -113,7 +119,9 @@ const Create: NextPage = () => {
                                         type="text"
                                         value={states.common_image_url}
                                         name={"common_image_url"}
-                                        onChange={(e) => { handleState(e) }}
+                                        onChange={(e) => {
+                                            handleState(e);
+                                        }}
                                         placeholder="画像のURLを入力"
                                         className="input input-bordered w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                     />
@@ -128,7 +136,9 @@ const Create: NextPage = () => {
                                         type="number"
                                         value={states.veryrare_lots}
                                         name={"veryrare_lots"}
-                                        onChange={(e) => { handleState(e) }}
+                                        onChange={(e) => {
+                                            handleState(e);
+                                        }}
                                         min={0}
                                         max={1000}
                                         placeholder="VeryRareの枚数を入力"
@@ -143,7 +153,9 @@ const Create: NextPage = () => {
                                         type="text"
                                         value={states.veryrare_image_url}
                                         name={"veryrare_image_url"}
-                                        onChange={(e) => { handleState(e) }}
+                                        onChange={(e) => {
+                                            handleState(e);
+                                        }}
                                         placeholder="画像のURLを入力"
                                         className="input input-bordered w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                     />
@@ -158,7 +170,9 @@ const Create: NextPage = () => {
                                         type="number"
                                         value={states.rare_lots}
                                         name={"rare_lots"}
-                                        onChange={(e) => { handleState(e) }}
+                                        onChange={(e) => {
+                                            handleState(e);
+                                        }}
                                         min={0}
                                         max={1000}
                                         placeholder="Rareの発行枚数を入力"
@@ -173,7 +187,9 @@ const Create: NextPage = () => {
                                         type="text"
                                         value={states.rare_image_url}
                                         name={"rare_image_url"}
-                                        onChange={(e) => { handleState(e) }}
+                                        onChange={(e) => {
+                                            handleState(e);
+                                        }}
                                         placeholder="画像のURLを入力"
                                         className="input input-bordered w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                     />
@@ -187,7 +203,9 @@ const Create: NextPage = () => {
                                     value={states.royalty}
                                     placeholder={"選択してください"}
                                     name={"royalty"}
-                                    onChange={(e) => { handleState(e) }}
+                                    onChange={(e) => {
+                                        handleState(e);
+                                    }}
                                     className="select select-bordered"
                                 >
                                     <option>0.0</option>
@@ -210,7 +228,6 @@ const Create: NextPage = () => {
                 </div>
             </div>
         </div>
-
     );
 };
 

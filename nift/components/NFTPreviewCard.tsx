@@ -22,9 +22,7 @@ const NFTPreviewCard = (props: NFTPreviewProps) => {
                                     <span aria-hidden="true" className="absolute inset-0">
                                         {props.description}
                                     </span>
-                                    <span>
-                                        {props.nft_name}
-                                    </span>
+                                    <span>{props.nft_name}</span>
                                 </h3>
                                 <p className="mt-1 text-sm text-gray-500">{props.brand_name}</p>
                             </div>

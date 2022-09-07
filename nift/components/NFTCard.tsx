@@ -24,13 +24,13 @@ const NFTCard = (props: NFTProps) => {
                                         <span aria-hidden="true" className="absolute inset-0">
                                             {props.description}
                                         </span>
-                                        <span>
-                                            {props.nft_name}
-                                        </span>
+                                        <span>{props.nft_name}</span>
                                     </h3>
                                     <p className="mt-1 text-sm text-gray-500">{props.brand_name}</p>
                                 </div>
-                                <p className="text-sm font-medium text-gray-900">ETH {props.price}</p>
+                                <p className="text-sm font-medium text-gray-900">
+                                    ETH {props.price}
+                                </p>
                             </div>
                         </div>
                     </div>
