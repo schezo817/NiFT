@@ -10,7 +10,7 @@ export const nftItemsTest: MarketNFT = {
             brand_name: "Brand Name", // ブランド名
 
             description: "This is a NFT ", // ブランドの説明
-            image_url: "https://placeimg.com/400/400/shoes", // 画像のURL
+            image_url: "https://placeimg.com/400/400/arch", // 画像のURL
 
             price: 0.5, // ETHの価格
             wallet_address: "0xtest", // 所有者のWalletAddress
