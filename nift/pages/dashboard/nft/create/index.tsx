@@ -19,13 +19,7 @@ const Create: NextPage = () => {
         royalty: "0.0"
     });
 
-    useEffect(() => {
-        console.log(states);
-    },[states]);
-
     const handleState = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-        console.log("name:", e.target.name, "value:", e.target.value);
-
         const { name, value } = e.target;
         setStates({ ...states, [name]: value });
     }
