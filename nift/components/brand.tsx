@@ -10,11 +10,11 @@ const Brand = () => {
     return (
         <div className="bg-white">
             {/* Top画像 */}
-            <div className="min-w-fit min-h-fit">
+            <div className="min-w-fit">
                 <img src="https://placeimg.com/800/200/arch" className="w-screen object-cover" />
             </div>
             {/* icon画像 */}
-            <div className="w-1/12 -translate-y-12 translate-x-12 shadow-lg">
+            <div className="min-w-[20%] w-1/12 -translate-y-12 translate-x-12 shadow-lg">
                 <img src="https://placeimg.com/192/192/people" alt="icon" className=" rounded-lg"/>
             </div>
 
