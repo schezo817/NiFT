@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { HiChevronDown } from "react-icons/hi";
-import {AiOutlineGift} from "react-icons/ai";
+import { AiOutlineGift } from "react-icons/ai";
 import { MdLogin, MdOutlineHome, MdOutlineInfo, MdMenu } from "react-icons/md";
 
 const Navbar = () => {
@@ -26,7 +26,7 @@ const Navbar = () => {
                         <Link href={"/dashboard"}>
                             <li>
                                 <a>
-                                    <MdOutlineHome   className="text-xl" />
+                                    <MdOutlineHome className="text-xl" />
                                     <span>Dashboard</span>
                                 </a>
                             </li>
@@ -39,7 +39,7 @@ const Navbar = () => {
             </div>
 
             <div className="navbar-end justify-self-auto gap-x-2">
-                <ul className="menu menu-horizontal p-0 hidden lg:flex">
+                <ul className="menu menu-horizontal p-0 hidden lg:flex gap-x-2">
                     <Link href={"/marketplace"}>
                         <li>
                             <a>
@@ -57,7 +57,6 @@ const Navbar = () => {
                             </a>
                         </Link>
                         <ul className="p-2 bg-white">
-
                             <Link href={"/dashboard/nft/create"}>
                                 <li>
                                     <a>Create NiFTs</a>
@@ -93,7 +92,7 @@ const Navbar = () => {
                     className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
                 >
                     <Link href={"/dashboard"}>
-                        <li>
+                        <li className="mb-2">
                             <a className="justify-between">DashBoard</a>
                         </li>
                     </Link>
@@ -108,9 +107,16 @@ const Navbar = () => {
             <input type="checkbox" id="my-modal" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box relative">
-                    <label htmlFor="my-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <label
+                        htmlFor="my-modal"
+                        className="btn btn-sm btn-circle absolute right-2 top-2"
+                    >
+                        ✕
+                    </label>
                     <h3 className="text-lg font-bold">あなたはログアウトしようとしています</h3>
-                    <button className="mt-3 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 btn">Log Out</button>
+                    <button className="mt-3 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 btn">
+                        Log Out
+                    </button>
                 </div>
             </div>
         </div>

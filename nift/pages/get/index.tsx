@@ -41,7 +41,9 @@ const Get: NextPage = () => {
         <div className="flex w-full justify-center items-center flex-col p-4 gap-4 bg-gradient-to-r from-indigo-800 to-pink-500">
             <div className="text-center">
                 <h1 className="text-2xl font-bold text-white p-4">NFT取得</h1>
-                <p className="text-white mb-4">NFTを取得するためには配布されたQRコードを読み取り、アクセスしてください</p>
+                <p className="text-white mb-4">
+                    NFTを取得するためには配布されたQRコードを読み取り、アクセスしてください
+                </p>
                 <div className="flex justify-center gap-4">
                     <div className="badge badge-primary text-white">NiFT Official</div>
                 </div>

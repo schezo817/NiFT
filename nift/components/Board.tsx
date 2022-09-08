@@ -16,7 +16,7 @@ const Board = () => {
             </div>
             {/* icon画像 */}
             <div className="min-w-[20%] w-1/12 -translate-y-12 translate-x-12 shadow-lg">
-                <img src="https://placeimg.com/192/192/people" alt="icon" className="rounded-lg"/>
+                <img src="https://placeimg.com/192/192/people" alt="icon" className="rounded-lg" />
             </div>
 
             {/* 保持している・していたNFTの情報 */}
@@ -37,7 +37,7 @@ const Board = () => {
                 })}
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Board;
