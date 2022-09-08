@@ -7,9 +7,5 @@ interface QRCodeProps {
 export const QRCode = (props: QRCodeProps) => {
     const { Canvas } = useQRCode();
 
-    return (
-        <Canvas
-            text={props.text}
-        />
-    );
-}
+    return <Canvas text={props.text} />;
+};

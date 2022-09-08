@@ -91,7 +91,9 @@ const Dashboard: NextPage = () => {
                                             <td>{v.brand_name}</td>
                                             <td>{v.code}</td>
                                             <td>
-                                                <QRCode text={`https://nift.tk/get?id=${v.nft_id}&code=${v.code}`}/>
+                                                <QRCode
+                                                    text={`https://nift.tk/get?id=${v.nft_id}&code=${v.code}`}
+                                                />
                                             </td>
                                             <td>
                                                 <input
