@@ -61,6 +61,14 @@ const Dashboard: NextPage = () => {
                     })}
                 </div>
             </div>
+            <div className="w-full bg-white translate-y-0">
+                <h1 className="p-8 pb-4 text-4xl font-bold">Reserved NFT</h1>
+                {/* 保持しているNFTの情報 */}
+                <div className="mt-4 grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">
+                    
+                </div>
+            </div>
+
         </div>
     );
 };

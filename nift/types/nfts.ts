@@ -81,3 +81,15 @@ export interface NFT {
 export interface MarketNFT {
     nfts: Array<NFT>;
 }
+
+export interface Reserved {
+    series_id: string;
+    nft_id: string;
+    brand_name: string;
+    code: number;
+    is_used: boolean;
+}
+
+export interface ReservedNFT {
+    nfts: Array<Reserved>;
+}
