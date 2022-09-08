@@ -7,7 +7,7 @@ import { nftItemsTest } from "toy/nftItemsTest";
 import { MarketNFT } from "types/nfts";
 
 const Dashboard: NextPage = () => {
-    const [marketNFT, setMarketNFT] = useState<MarketNFT>(nftItemsTest);
+    const [myNFT, setMyNFT] = useState<MarketNFT>(nftItemsTest);
 
     return (
         <div className="bg-white">
@@ -44,7 +44,7 @@ const Dashboard: NextPage = () => {
                 <h1 className="p-8 pb-4 text-4xl font-bold">My NFT</h1>
                 {/* 保持しているNFTの情報 */}
                 <div className="mt-4 grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">
-                    {marketNFT?.nfts.map((v, i) => {
+                    {myNFT?.nfts.map((v, i) => {
                         return (
                             <NFTMyCard
                                 key={v.nft_id}
