@@ -1,10 +1,10 @@
-import Link from "next/link";
+import { NextPage } from "next";
 import { useState } from "react";
 import { nftItemsTest } from "toy/nftItemsTest";
 import { MarketNFT } from "types/nfts";
-import NFTMarketCard from "./NFTMarketCard";
+import NFTMarketCard from "components/NFTMarketCard";
 
-const Brand = () => {
+const BrandPage: NextPage = () => {
     const [marketNFT, setMarketNFT] = useState<MarketNFT>(nftItemsTest);
 
     return (
@@ -70,7 +70,8 @@ const Brand = () => {
                 })}
             </div>
         </div>
+
     );
 };
 
-export default Brand;
+export default BrandPage;
