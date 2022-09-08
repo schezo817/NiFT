@@ -62,6 +62,11 @@ const Navbar = () => {
                                     <a>Create NiFTs</a>
                                 </li>
                             </Link>
+                            <Link href={"/dashboard/nft/sell"}>
+                                <li>
+                                    <a>Sell NiFTs</a>
+                                </li>
+                            </Link>
                         </ul>
                     </li>
                 </ul>

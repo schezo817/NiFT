@@ -12,7 +12,7 @@ const Sell: NextPage = () => {
         nft_name: "NFT Name",
         series_id: "Series ID",
         brand_name: "Brand Name",
-        description: "Description",
+        description: "This is description section",
         image_url:
             "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
         price: 100,
@@ -40,13 +40,21 @@ const Sell: NextPage = () => {
                         <h1 className="mt-1 text-2xl tracking-tight text-gray-900 sm:text-xl">
                             {detailNFT.brand_name}
                         </h1>
-                        <p className="mt-5 text-3xl tracking-tight text-gray-900">
-                            ETH {detailNFT.price}
-                        </p>
+                        <div className="mt-4">
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">出品価格</span>
+                                </label>
+                                <label className="input-group">
+                                    <input type="text" placeholder="0.0010" className="input input-bordered" />
+                                    <span>ETH</span>
+                                </label>
+                            </div>
+                        </div>
                         <div className="space-y-6 mt-10">
                             <p className="text-base text-gray-900">{detailNFT.description}</p>
                         </div>
-                        <div className="my-10 btn btn-primary w-full">Buy Now</div>
+                        <div className="my-10 btn btn-primary w-full">出品する</div>
                     </div>
                 </div>
             </div>
