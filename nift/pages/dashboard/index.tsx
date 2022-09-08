@@ -80,26 +80,30 @@ const Dashboard: NextPage = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {
-                                    reservedNFTTest.nfts.map((v, i) => {
-                                        return (
-                                            <tr key={v.nft_id}>
-                                                <th>{i + 1}</th>
-                                                <td>{v.nft_id}</td>
-                                                <td>{v.series_id}</td>
-                                                <td>{v.brand_name}</td>
-                                                <td>{v.code}</td>
-                                                <td><input type="checkbox" checked={v.is_used} className="checkbox" readOnly/></td>
-                                            </tr>
-                                        )
-                                    })
-                                }
+                                {reservedNFTTest.nfts.map((v, i) => {
+                                    return (
+                                        <tr key={v.nft_id}>
+                                            <th>{i + 1}</th>
+                                            <td>{v.nft_id}</td>
+                                            <td>{v.series_id}</td>
+                                            <td>{v.brand_name}</td>
+                                            <td>{v.code}</td>
+                                            <td>
+                                                <input
+                                                    type="checkbox"
+                                                    checked={v.is_used}
+                                                    className="checkbox"
+                                                    readOnly
+                                                />
+                                            </td>
+                                        </tr>
+                                    );
+                                })}
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-
         </div>
     );
 };

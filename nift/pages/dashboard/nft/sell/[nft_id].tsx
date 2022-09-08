@@ -19,13 +19,10 @@ const Sell: NextPage = () => {
         wallet_address: "0x000000",
     });
 
-    const handleState = (
-        e: React.ChangeEvent<HTMLInputElement>
-    ) => {
+    const handleState = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setSellNFT({ ...sellNFT, [name]: value });
     };
-
 
     return (
         <div className="bg-white">

@@ -15,6 +15,6 @@ export const reservedNFTTest: ReservedNFT = {
             series_id: "12345",
             brand_name: "Brand Name",
             is_used: true,
-        }
-    ]
-}
+        },
+    ],
+};
