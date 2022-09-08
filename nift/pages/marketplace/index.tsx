@@ -8,7 +8,8 @@ const MarketPlace: NextPage = () => {
     const [marketNFT, setMarketNFT] = useState<MarketNFT>(nftItemsTest);
 
     return (
-        <div>
+        <div className="flex items-center flex-col py-8 px-4">
+            <h1 className="text-4xl font-black">Marketplace</h1>
             {/* 保持している or していたNFTの情報 */}
             <div className="mt-6 grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">
                 {marketNFT?.nfts.map((v, i) => {
@@ -26,6 +27,12 @@ const MarketPlace: NextPage = () => {
                         />
                     );
                 })}
+            </div>
+            <div className="btn-group">
+                <input type="radio" name="options" data-title="1" className="btn" />
+                <input type="radio" name="options" data-title="2" className="btn" />
+                <input type="radio" name="options" data-title="3" className="btn" />
+                <input type="radio" name="options" data-title="4" className="btn" />
             </div>
         </div>
     );
