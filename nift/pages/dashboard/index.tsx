@@ -4,10 +4,12 @@ import { useState } from "react";
 import { BsPatchCheck } from "react-icons/bs";
 import NFTMyCard from "components/NFTMyCard";
 import { nftItemsTest } from "toy/nftItemsTest";
-import { MarketNFT } from "types/nfts";
+import { MarketNFT, ReservedNFT } from "types/nfts";
+import { reservedNFTTest } from "toy/reservedItemsTest";
 
 const Dashboard: NextPage = () => {
     const [myNFT, setMyNFT] = useState<MarketNFT>(nftItemsTest);
+    const [reservedNFT, setReservedNFT] = useState<ReservedNFT>(reservedNFTTest);
 
     return (
         <div className="bg-white">
@@ -63,9 +65,38 @@ const Dashboard: NextPage = () => {
             </div>
             <div className="w-full bg-white translate-y-0">
                 <h1 className="p-8 pb-4 text-4xl font-bold">Reserved NFT</h1>
-                {/* 保持しているNFTの情報 */}
-                <div className="mt-4 grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">
-                    
+                {/* 予約されているNFTの情報 */}
+                <div className="p-8 w-full">
+                    <div className="overflow-x-auto">
+                        <table className="table w-full">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Reserved ID</th>
+                                    <th>Series ID</th>
+                                    <th>Brand Name</th>
+                                    <th>Code</th>
+                                    <th>Is Used</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    reservedNFTTest.nfts.map((v, i) => {
+                                        return (
+                                            <tr key={v.nft_id}>
+                                                <th>{i + 1}</th>
+                                                <td>{v.nft_id}</td>
+                                                <td>{v.series_id}</td>
+                                                <td>{v.brand_name}</td>
+                                                <td>{v.code}</td>
+                                                <td><input type="checkbox" checked={v.is_used} className="checkbox" readOnly/></td>
+                                            </tr>
+                                        )
+                                    })
+                                }
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
 
