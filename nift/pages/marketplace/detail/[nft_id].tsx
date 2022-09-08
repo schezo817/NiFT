@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import Link from "next/link";
-import { useState } from "react";
 import { useRouter } from "next/router";
+import { useState } from "react";
 import { NFT } from "types/nfts";
 
 const Detail: NextPage = () => {
@@ -14,9 +14,10 @@ const Detail: NextPage = () => {
         series_id: "Series ID",
         brand_name: "Brand Name",
         description: "Description",
-        image_url: "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
+        image_url:
+            "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
         price: 100,
-        wallet_address: "0x000000"
+        wallet_address: "0x000000",
     });
 
     return (
@@ -40,18 +41,17 @@ const Detail: NextPage = () => {
                         <h1 className="mt-1 text-2xl tracking-tight text-gray-900 sm:text-xl">
                             {detailNFT.brand_name}
                         </h1>
-                        <p className="mt-5 text-3xl tracking-tight text-gray-900">ETH {detailNFT.price}</p>
+                        <p className="mt-5 text-3xl tracking-tight text-gray-900">
+                            ETH {detailNFT.price}
+                        </p>
                         <div className="space-y-6 mt-10">
-                            <p className="text-base text-gray-900">
-                                {detailNFT.description}
-                            </p>
+                            <p className="text-base text-gray-900">{detailNFT.description}</p>
                         </div>
                         <div className="my-10 btn btn-primary w-full">Buy Now</div>
                     </div>
                 </div>
             </div>
         </div>
-
     );
 };
 

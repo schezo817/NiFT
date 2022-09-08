@@ -1,8 +1,8 @@
 import { NextPage } from "next";
 import React, { useEffect, useState } from "react";
 
-import { NFTCreation } from "types/nfts";
 import NFTPreviewCard from "components/NFTPreviewCard";
+import { NFTCreation } from "types/nfts";
 
 const Create: NextPage = () => {
     const [states, setStates] = useState<NFTCreation>({
