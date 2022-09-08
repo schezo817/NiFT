@@ -6,6 +6,7 @@ import NFTMyCard from "components/NFTMyCard";
 import { nftItemsTest } from "toy/nftItemsTest";
 import { MarketNFT, ReservedNFT } from "types/nfts";
 import { reservedNFTTest } from "toy/reservedItemsTest";
+import { QRCode } from "components/QRCode";
 
 const Dashboard: NextPage = () => {
     const [myNFT, setMyNFT] = useState<MarketNFT>(nftItemsTest);
@@ -76,11 +77,12 @@ const Dashboard: NextPage = () => {
                                     <th>Series ID</th>
                                     <th>Brand Name</th>
                                     <th>Code</th>
+                                    <th>QR Code</th>
                                     <th>Is Used</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {reservedNFTTest.nfts.map((v, i) => {
+                                {reservedNFT.nfts.map((v, i) => {
                                     return (
                                         <tr key={v.nft_id}>
                                             <th>{i + 1}</th>
@@ -88,6 +90,9 @@ const Dashboard: NextPage = () => {
                                             <td>{v.series_id}</td>
                                             <td>{v.brand_name}</td>
                                             <td>{v.code}</td>
+                                            <td>
+                                                <QRCode text={`https://nift.tk/get?id=${v.nft_id}&code=${v.code}`}/>
+                                            </td>
                                             <td>
                                                 <input
                                                     type="checkbox"
