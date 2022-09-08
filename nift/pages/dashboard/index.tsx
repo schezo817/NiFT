@@ -10,7 +10,6 @@ const Dashboard: NextPage = () => {
     const [marketNFT, setMarketNFT] = useState<MarketNFT>(nftItemsTest);
 
     return (
-        // 一番大きな箱を返す。
         <div className="bg-white">
             {/* Top画像 */}
             <div className="min-w-fit max-h-32">
@@ -19,7 +18,6 @@ const Dashboard: NextPage = () => {
                     className="w-screen max-h-96 object-cover"
                 />
             </div>
-            {/* icon画像 */}
             <div className="min-w-[20%] w-10/12 justify-center -translate-y-12 translate-x-4 md:translate-x-12 md:w-2/3 bg-white rounded-xl">
                 <div className="p-4">
                     <div className="flex flex-row flex-wrap justify-start gap-4 p-4 w-full">
@@ -44,7 +42,7 @@ const Dashboard: NextPage = () => {
             </div>
             <div className="w-full bg-white translate-y-0">
                 <h1 className="p-8 pb-4 text-4xl font-bold">My NFT</h1>
-                {/* 保持している・していたNFTの情報 */}
+                {/* 保持しているNFTの情報 */}
                 <div className="mt-4 grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">
                     {marketNFT?.nfts.map((v, i) => {
                         return (
