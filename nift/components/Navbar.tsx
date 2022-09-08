@@ -2,6 +2,7 @@ import Link from "next/link";
 import { HiChevronDown } from "react-icons/hi";
 import { AiOutlineGift, AiOutlineShop } from "react-icons/ai";
 import { MdLogin, MdOutlineHome, MdOutlineInfo, MdMenu } from "react-icons/md";
+import { signOut } from "next-auth/react";
 
 const Navbar = () => {
     return (
@@ -114,8 +115,10 @@ const Navbar = () => {
                         ✕
                     </label>
                     <h3 className="text-lg font-bold">あなたはログアウトしようとしています</h3>
-                    <button className="mt-3 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 btn">
-                        Log Out
+                    <button className="mt-3 btn btn-primary w-full"
+                        onClick={() => signOut()}
+                    >
+                        ログアウト
                     </button>
                 </div>
             </div>
