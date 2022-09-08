@@ -47,6 +47,7 @@ const Dashboard: NextPage = () => {
                     {marketNFT?.nfts.map((v, i) => {
                         return (
                             <NFTMarketCard
+                                key={v.nft_id}
                                 nft_id={v.nft_id}
                                 nft_name={v.nft_name}
                                 series_id={v.series_id}
