@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import Link from "next/link";
 import { useState } from "react";
 import { BsPatchCheck } from "react-icons/bs";
-import NFTMarketCard from "components/NFTMarketCard";
+import NFTMyCard from "components/NFTMyCard";
 import { nftItemsTest } from "toy/nftItemsTest";
 import { MarketNFT } from "types/nfts";
 
@@ -46,7 +46,7 @@ const Dashboard: NextPage = () => {
                 <div className="mt-4 grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">
                     {marketNFT?.nfts.map((v, i) => {
                         return (
-                            <NFTMarketCard
+                            <NFTMyCard
                                 key={v.nft_id}
                                 nft_id={v.nft_id}
                                 nft_name={v.nft_name}

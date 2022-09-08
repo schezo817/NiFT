@@ -1,8 +1,8 @@
 import { NextPage } from "next";
 import { useState } from "react";
-import NFTMarketCard from "components/NFTMarketCard";
 import { nftItemsTest } from "toy/nftItemsTest";
 import { MarketNFT } from "types/nfts";
+import NFTMarketCard from "components/NFTMarketCard";
 
 const MarketPlace: NextPage = () => {
     const [marketNFT, setMarketNFT] = useState<MarketNFT>(nftItemsTest);
