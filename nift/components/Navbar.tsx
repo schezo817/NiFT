@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { HiChevronDown } from "react-icons/hi";
-import { AiOutlineGift } from "react-icons/ai";
+import { AiOutlineGift, AiOutlineShop } from "react-icons/ai";
 import { MdLogin, MdOutlineHome, MdOutlineInfo, MdMenu } from "react-icons/md";
 
 const Navbar = () => {
@@ -18,7 +18,7 @@ const Navbar = () => {
                         <Link href={"/marketplace"}>
                             <li>
                                 <a>
-                                    <div className="text-xl" />
+                                    <AiOutlineShop className="text-xl" />
                                     <span>MarketPlace</span>
                                 </a>
                             </li>
@@ -42,7 +42,7 @@ const Navbar = () => {
                 <ul className="menu menu-horizontal p-0 hidden lg:flex gap-x-2">
                     <Link href={"/marketplace"}>
                         <li>
-                            <a>
+                            <a className="aling-center">
                                 <MdOutlineHome className="text-xl" />
                                 <span>MarketPlace</span>
                             </a>
@@ -50,13 +50,13 @@ const Navbar = () => {
                     </Link>
                     <li tabIndex={0}>
                         <Link href={"/dashboard"}>
-                            <a>
+                            <a className="align-center">
                                 <MdOutlineHome className="text-xl" />
                                 <span>DashBoard</span>
                                 <HiChevronDown className="text-xl" />
                             </a>
                         </Link>
-                        <ul className="p-2 bg-white">
+                        <ul className="p-2 bg-white w-full">
                             <Link href={"/dashboard/nft/create"}>
                                 <li>
                                     <a>Create NiFTs</a>
