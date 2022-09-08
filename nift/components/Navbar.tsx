@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { HiChevronDown } from "react-icons/hi";
-import { AiOutlineGift, AiOutlineShop, AiOutlinePlusSquare } from "react-icons/ai";
-import { MdLogin, MdOutlineHome, MdMenu } from "react-icons/md";
+import { AiOutlineGift, AiOutlineShop } from "react-icons/ai";
+import { MdLogin, MdOutlineHome, MdOutlineInfo, MdMenu } from "react-icons/md";
 
 const Navbar = () => {
     return (
@@ -42,9 +42,9 @@ const Navbar = () => {
                 <ul className="menu menu-horizontal p-0 hidden lg:flex gap-x-2">
                     <Link href={"/marketplace"}>
                         <li>
-                            <a className="align-center">
-                                <AiOutlineShop className="text-xl" />
-                                <span>MarletPlace</span>
+                            <a className="aling-center">
+                                <MdOutlineHome className="text-xl" />
+                                <span>MarketPlace</span>
                             </a>
                         </li>
                     </Link>
@@ -56,19 +56,17 @@ const Navbar = () => {
                                 <HiChevronDown className="text-xl" />
                             </a>
                         </Link>
-                        <ul className="bg-white w-full">
+                        <ul className="p-2 bg-white w-full">
                             <Link href={"/dashboard/nft/create"}>
                                 <li>
-                                    <a>
-                                        <AiOutlinePlusSquare className="text-xl" />
-                                        <span>Create NiFTs</span>
-                                    </a>
+                                    <a>Create NiFTs</a>
                                 </li>
                             </Link>
                         </ul>
                     </li>
                 </ul>
 
+                {/* ボタン */}
                 <Link href={"/login"}>
                     <button className="btn items-center btn-primary">
                         <MdLogin className="text-xl" />
@@ -91,7 +89,7 @@ const Navbar = () => {
                 </label>
                 <ul
                     tabIndex={0}
-                    className="menu menu-compact dropdown-content mt-3 p-2 w-52 shadow bg-base-100 rounded-box"
+                    className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
                 >
                     <Link href={"/dashboard"}>
                         <li className="mb-2">
@@ -102,6 +100,24 @@ const Navbar = () => {
                         Logout
                     </label>
                 </ul>
+            </div>
+
+            {/* ログアウト確定モーダル */}
+            {/* id をmy-modalに変更する。 */}
+            <input type="checkbox" id="my-modal" className="modal-toggle" />
+            <div className="modal">
+                <div className="modal-box relative">
+                    <label
+                        htmlFor="my-modal"
+                        className="btn btn-sm btn-circle absolute right-2 top-2"
+                    >
+                        ✕
+                    </label>
+                    <h3 className="text-lg font-bold">あなたはログアウトしようとしています</h3>
+                    <button className="mt-3 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 btn">
+                        Log Out
+                    </button>
+                </div>
             </div>
         </div>
     );
