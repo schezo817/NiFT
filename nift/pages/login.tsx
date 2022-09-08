@@ -10,6 +10,7 @@ const Login: NextPage = () => {
                         <figure>
                             <img
                                 src="https://placeimg.com/400/400/arch"
+                                alt="Login Image"
                                 className="object-cover w-full max-h-60 sm:max-h-96"
                             />
                         </figure>

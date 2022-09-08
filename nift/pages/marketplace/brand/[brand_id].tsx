@@ -1,8 +1,8 @@
 import { NextPage } from "next";
 import { useState } from "react";
+import NFTMarketCard from "components/NFTMarketCard";
 import { nftItemsTest } from "toy/nftItemsTest";
 import { MarketNFT } from "types/nfts";
-import NFTMarketCard from "components/NFTMarketCard";
 
 const BrandPage: NextPage = () => {
     const [marketNFT, setMarketNFT] = useState<MarketNFT>(nftItemsTest);
@@ -11,7 +11,11 @@ const BrandPage: NextPage = () => {
         <div className="bg-white">
             {/* Top画像 */}
             <div className="min-w-fit">
-                <img src="https://placeimg.com/800/200/arch" className="w-screen object-cover" />
+                <img
+                    src="https://placeimg.com/800/200/arch"
+                    alt="top-image"
+                    className="w-screen object-cover"
+                />
             </div>
             {/* icon画像 */}
             <div className="min-w-[20%] w-1/12 -translate-y-12 translate-x-12 shadow-lg">
@@ -57,6 +61,7 @@ const BrandPage: NextPage = () => {
                 {marketNFT?.nfts.map((v, i) => {
                     return (
                         <NFTMarketCard
+                            key={v.nft_id}
                             nft_id={v.nft_id}
                             nft_name={v.nft_name}
                             series_id={v.series_id}
@@ -70,7 +75,6 @@ const BrandPage: NextPage = () => {
                 })}
             </div>
         </div>
-
     );
 };
 
