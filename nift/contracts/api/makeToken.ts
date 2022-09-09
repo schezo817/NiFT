@@ -45,6 +45,17 @@ const makeToken = () => {
         const price = states.price;
         await contract.methods.resellToken(tokenId, price);
     }
+
+    const changeData = (nft_id: string, nft_name: string, series_id: string, brand_name: string, description: string, image_url: string, price: number, wallet_address: string) => {
+        states.nft_id = nft_id;
+        states.nft_name = nft_name;
+        states.series_id = series_id;
+        states.brand_name = brand_name;
+        states.description = description;
+        states.image_url = image_url;
+        states.price = price;
+        states.wallet_address = wallet_address;
+    }
 };
 
 export default makeToken;
