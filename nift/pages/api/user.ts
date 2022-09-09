@@ -22,15 +22,15 @@ export const handler: NextApiHandler = async (req, res) => {
                     const response: UserGetFailedResponse = {
                         status: "failed",
                         data: {
-                            message: "id is required."
-                        }
-                    }
+                            message: "id is required.",
+                        },
+                    };
                     return res.status(400).json(response);
                 } else if (user_id !== "") {
                     const userResponse = await prisma.user.findUnique({
                         where: {
-                            id: user_id
-                        }
+                            id: user_id,
+                        },
                     });
 
                     console.log("User Response: \n", userResponse);
@@ -54,24 +54,23 @@ export const handler: NextApiHandler = async (req, res) => {
                 const response: UserGetFailedResponse = {
                     status: "error",
                     data: {
-                        message: "Something is wrong."
-                    }
-                }
+                        message: "Something is wrong.",
+                    },
+                };
                 return res.status(500).json(response);
-             } catch (error) {
+            } catch (error) {
                 // ValidationError or more error
                 const response: UserGetFailedResponse = {
                     status: "error",
                     data: {
-                        message: "Something is wrong."
-                    }
-                }
+                        message: "Something is wrong.",
+                    },
+                };
                 return res.status(500).json(response);
             }
         }
 
         if (req.method === "POST") {
-
         }
     } else {
         const response: UserGetFailedResponse = {
@@ -81,7 +80,7 @@ export const handler: NextApiHandler = async (req, res) => {
             },
         };
         return res.status(401).json(response);
-    }    
+    }
 };
 
 export default handler;

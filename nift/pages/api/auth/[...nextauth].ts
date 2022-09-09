@@ -37,8 +37,8 @@ export default NextAuth({
                 session.id = token.id as string;
                 session.accessToken = token.accessToken as string;
             }
-            console.log("session:\n",session);
+            console.log("session:\n", session);
             return session;
-        }
+        },
     },
 });

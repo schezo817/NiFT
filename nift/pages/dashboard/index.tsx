@@ -19,7 +19,7 @@ const Dashboard: NextPage = () => {
         required: true,
         onUnauthenticated() {
             router.push("/");
-        }
+        },
     });
 
     const [myNFT, setMyNFT] = useState<MarketNFT>(nftItemsTest);
@@ -30,20 +30,20 @@ const Dashboard: NextPage = () => {
         const exec = async () => {
             // sessionのデータを確実に取得する
             const session = await getSession();
-            
+
             if (session) {
                 const userResponse = await apiClient.user.$get({
                     query: {
-                        id: session?.id
-                    }
+                        id: session?.id,
+                    },
                 });
                 if (userResponse.status === "success") {
                     setUser(userResponse.data as User);
                 } else {
-                    console.error("Something went wrong.")
+                    console.error("Something went wrong.");
                 }
             }
-        }
+        };
         exec();
     }, []);
     return (
@@ -72,23 +72,19 @@ const Dashboard: NextPage = () => {
                             </div>
                         </div>
                         <div className="flex flex-col justify-center gap-4 p-4 w-96 max-w-full break-all">
-                            <p className="text-4xl font-bold">
-                                {user?.user_name ?? "名称未設定"}
-                            </p>
+                            <p className="text-4xl font-bold">{user?.user_name ?? "名称未設定"}</p>
                             <div className="flex items-center">
-                                {
-                                    user?.wallet_address ? (
-                                        <>
-                                            <BsPatchCheck className="text-2xl mr-2" />
-                                            <span>Wallet is connected</span>
-                                        </>
-                                    ) : (
-                                        <>
-                                            <BsInfoCircle className="text-2xl mr-2" />
-                                            <span>Wallet is Disconnected</span>
-                                        </>
-                                    )
-                                }
+                                {user?.wallet_address ? (
+                                    <>
+                                        <BsPatchCheck className="text-2xl mr-2" />
+                                        <span>Wallet is connected</span>
+                                    </>
+                                ) : (
+                                    <>
+                                        <BsInfoCircle className="text-2xl mr-2" />
+                                        <span>Wallet is Disconnected</span>
+                                    </>
+                                )}
                             </div>
                             <p>{user?.wallet_address}</p>
                             <Link href={"/dashboard/user"}>
