@@ -10,20 +10,18 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/interfaces/IERC2981.sol";
 
 contract NFTMarketplace is ERC721URIStorage, IERC2981 {
-    //NFTを作るのに必要なコンテナ(?) インクリメント・デクリメントのみできるデータ型
+    //NFTを作るのに必要なコンテナ インクリメント・デクリメントのみできるデータ型
     using Counters for Counters.Counter;
 
     Counters.Counter private _tokenIds;
     Counters.Counter private _itemsSold;
     //販売価格
     uint256 listingPrice = 0.00010 ether;
-    //送金可能なユーザ
-    address payable owner; 
     //NFT発行者
-    address makeNFTer;
+    address payable owner; 
     //royaltyの割合
     uint96 royaltypercent;
-    //nftidとnftの中身のマップ
+    //tokenidとnftの中身のマップ
     mapping(uint256 => MarketItem) private idToMarketItem;
     //構造体
     struct MarketItem {
@@ -62,7 +60,7 @@ contract NFTMarketplace is ERC721URIStorage, IERC2981 {
     }
 
     //トークンの作成
-    function createToken(string memory tokenURI, uint256 price) public payable returns (uint) {
+    function createToken(string tokenURI, uint256 price) public payable returns (uint256) {
       //トークンのidを+1  
       _tokenIds.increment();
       //トークンidの割り当て
@@ -135,10 +133,87 @@ contract NFTMarketplace is ERC721URIStorage, IERC2981 {
       payable(owner).transfer(listingPrice);
       payable(creator).transfer(msg.value);
     }
+
+    function fetchMarketItems() public view returns (MarketItem[] memory) {
+      uint itemCount = _tokenIds.current();
+      uint unsoldItemCount = _tokenIds.current() - _itemsSold.current();
+      uint currentIndex = 0;
+
+      MarketItem[] memory items = new MarketItem[](unsoldItemCount);
+      for (uint i = 0; i < itemCount; i++) {
+
+        if (idToMarketItem[i + 1].owner == address(this)) {
+
+          uint currentId = i + 1;
+
+          MarketItem storage currentItem = idToMarketItem[currentId];
+
+          items[currentIndex] = currentItem;
+
+          currentIndex += 1;
+        }
+      }
+
+      return items;
+    }
+
+
+    function fetchMyNFTs() public view returns (MarketItem[] memory) {
+      uint totalItemCount = _tokenIds.current();
+      uint itemCount = 0;
+      uint currentIndex = 0;
+
+
+      for (uint i = 0; i < totalItemCount; i++) {
+        // check if nft is mine
+        if (idToMarketItem[i + 1].owner == msg.sender) {
+          itemCount += 1;
+        }
+      }
+
+      MarketItem[] memory items = new MarketItem[](itemCount);
+      for (uint i = 0; i < totalItemCount; i++) {
+
+        if (idToMarketItem[i + 1].owner == msg.sender) {
+          uint currentId = i + 1;
+          MarketItem storage currentItem = idToMarketItem[currentId];
+          items[currentIndex] = currentItem;
+          currentIndex += 1;
+        }
+      }
+      return items;
+    }
+
+    function fetchItemsListed() public view returns (MarketItem[] memory) {
+      uint totalItemCount = _tokenIds.current();
+      uint itemCount = 0;
+      uint currentIndex = 0;
+
+      for (uint i = 0; i < totalItemCount; i++) {
+        if (idToMarketItem[i + 1].seller == msg.sender) {
+          itemCount += 1;
+        }
+      }
+
+      MarketItem[] memory items = new MarketItem[](itemCount);
+      for (uint i = 0; i < totalItemCount; i++) {
+        if (idToMarketItem[i + 1].seller == msg.sender) {
+          uint currentId = i + 1;
+          MarketItem storage currentItem = idToMarketItem[currentId];
+          items[currentIndex] = currentItem;
+          currentIndex += 1;
+        }
+      }
+      
+      return items;
+    }
+
+
+
     //royalty情報の送信
     function royaltyInfo(uint256 tokenId,uint256 salePrice) public view virtual override returns (address, uint256){
         uint256 royaltyAmont = salePrice * royaltypercent / 100;
-        address reciver = makeNFTer;
+        address reciver = owner;
         require(reciver != address(0), "ERC2981: invalid receiver");
         return (reciver, royaltyAmont);
     }
