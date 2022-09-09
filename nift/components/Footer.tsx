@@ -1,18 +1,26 @@
+import { Session } from "inspector";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { FaGithub, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
+    const { data: session, status } = useSession();
+
     return (
         <div className="footer p-8 bg-base-200 text-base-content max-w-full ">
-            <div></div>
             <div>
                 <span className="footer-title">Service</span>
                 <Link href={"/marketplace"}>
                     <a className="link link-hover">MarketPlace</a>
                 </Link>
-                <Link href={"/dashboard"}>
-                    <a className="link link-hover">DashBoard</a>
-                </Link>
+
+                {status === "authenticated" ? (
+                    <Link href={"/dashboard"}>
+                        <a className="link link-hover">DashBoard</a>
+                    </Link>
+                ):(
+                    <></>
+                )}
             </div>
 
             <div>
@@ -20,9 +28,14 @@ const Footer = () => {
                 <Link href={"/about"}>
                     <a className="link link-hover">About</a>
                 </Link>
-                <Link href={"/login"}>
-                    <a className="link link-hover">Login</a>
-                </Link>
+
+                {status === "authenticated" ? (
+                    <></>
+                ) : (
+                    <Link href={"/login"}>
+                        <a className="link link-hover">Login</a>
+                    </Link>
+                )}
             </div>
 
             <div>
@@ -45,7 +58,7 @@ const Footer = () => {
                 <p>Copyright © 2022 - All right reserved by NiFT Project</p>
             </div>
         </div>
-    );
+    )
 };
 
 export default Footer;
