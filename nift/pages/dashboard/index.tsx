@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BsPatchCheck } from "react-icons/bs";
 import NFTMyCard from "components/NFTMyCard";
 import { nftItemsTest } from "toy/nftItemsTest";
@@ -13,6 +13,12 @@ const Dashboard: NextPage = () => {
     const { data: session, status } = useSession();
     const [myNFT, setMyNFT] = useState<MarketNFT>(nftItemsTest);
     const [reservedNFT, setReservedNFT] = useState<ReservedNFT>(reservedNFTTest);
+
+    useEffect(() => {
+        if(session) {
+            console.log(session);
+        }
+    },[]);
 
     return (
         <div className="bg-white">
