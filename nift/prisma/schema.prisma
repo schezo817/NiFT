@@ -42,27 +42,19 @@ model Session {
 }
 
 model User {
-  id            String          @id @default(cuid())
-  name          String?
-  email         String?         @unique
-  emailVerified DateTime?
-  image         String?
-  accounts      Account[]
-  sessions      Session[]
-  reservedNfts  reserved_nfts[]
-  userdetail    UserDetail?
-  created_at    DateTime        @default(now())
-  updated_at    DateTime        @updatedAt
-}
-
-model UserDetail {
-  foreign_id     User     @relation(fields: [id], references: [id])
-  id             String   @id
-  user_name      String?
-  wallet_address String?
-  is_company     Boolean?
-  created_at     DateTime @default(now())
-  updated_at     DateTime @updatedAt
+  id             String          @id @default(cuid())
+  name           String?
+  email          String?         @unique
+  emailVerified  DateTime?
+  image          String?
+  user_name      String?         @default("名称未設定")
+  wallet_address String?         @default("")
+  is_company     Boolean?        @default(false)
+  accounts       Account[]
+  sessions       Session[]
+  reservedNfts   reserved_nfts[]
+  created_at     DateTime        @default(now())
+  updated_at     DateTime        @updatedAt
 }
 
 model VerificationToken {
