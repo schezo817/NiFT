@@ -1,7 +1,13 @@
 import { NextPage } from "next";
 import Link from "next/link";
+import { useState } from "react";
+import { nftItemsTest } from "toy/nftItemsTest";
+import { MarketNFT } from "types/nfts";
+import NFTHomeCard from "components/NFTHomeCard";
 
 const Home: NextPage = () => {
+    const [marketNFT, setMarketNFT] = useState<MarketNFT>(nftItemsTest);
+
     return (
         <div className="hero min-h-screen bg-gradient-to-r from-indigo-800 to-pink-500 text-white">
             <div className="hero-content flex-col lg:flex-row-reverse">
@@ -21,26 +27,66 @@ const Home: NextPage = () => {
                     </div>
 
                     <div className="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
-                        <img
-                            src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-01.jpg"
-                            alt="Walnut card tray with white powder coated steel divider and 3 punchout holes."
-                            className="rounded-lg bg-gray-100"
-                        />
-                        <img
-                            src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-02.jpg"
-                            alt="Top down view of walnut card tray with embedded magnets and card groove."
-                            className="rounded-lg bg-gray-100"
-                        />
-                        <img
-                            src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-03.jpg"
-                            alt="Side of walnut card tray with card groove and recessed card area."
-                            className="rounded-lg bg-gray-100"
-                        />
-                        <img
-                            src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-04.jpg"
-                            alt="Walnut card tray filled with cards and card angled in dedicated groove."
-                            className="rounded-lg bg-gray-100"
-                        />
+                        {marketNFT?.nfts.map((v, i) => {
+                            return (
+                                <NFTHomeCard
+                                    key={v.nft_id}
+                                    nft_id={v.nft_id}
+                                    nft_name={v.nft_name}
+                                    series_id={v.series_id}
+                                    brand_name={v.brand_name}
+                                    description={v.description}
+                                    image_url={v.image_url}
+                                    price={v.price}
+                                    wallet_address={v.wallet_address}
+                                />
+                            );
+                        })}
+                        {marketNFT?.nfts.map((v, i) => {
+                            return (
+                                <NFTHomeCard
+                                    key={v.nft_id}
+                                    nft_id={v.nft_id}
+                                    nft_name={v.nft_name}
+                                    series_id={v.series_id}
+                                    brand_name={v.brand_name}
+                                    description={v.description}
+                                    image_url={v.image_url}
+                                    price={v.price}
+                                    wallet_address={v.wallet_address}
+                                />
+                            );
+                        })}
+                        {marketNFT?.nfts.map((v, i) => {
+                            return (
+                                <NFTHomeCard
+                                    key={v.nft_id}
+                                    nft_id={v.nft_id}
+                                    nft_name={v.nft_name}
+                                    series_id={v.series_id}
+                                    brand_name={v.brand_name}
+                                    description={v.description}
+                                    image_url={v.image_url}
+                                    price={v.price}
+                                    wallet_address={v.wallet_address}
+                                />
+                            );
+                        })}
+                        {marketNFT?.nfts.map((v, i) => {
+                            return (
+                                <NFTHomeCard
+                                    key={v.nft_id}
+                                    nft_id={v.nft_id}
+                                    nft_name={v.nft_name}
+                                    series_id={v.series_id}
+                                    brand_name={v.brand_name}
+                                    description={v.description}
+                                    image_url={v.image_url}
+                                    price={v.price}
+                                    wallet_address={v.wallet_address}
+                                />
+                            );
+                        })}
                     </div>
                 </div>
             </div>
