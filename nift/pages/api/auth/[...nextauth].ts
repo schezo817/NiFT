@@ -13,11 +13,26 @@ export default NextAuth({
             clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? "",
         }),
     ],
+    session: {
+        strategy: "jwt",
+        maxAge: 30 * 24 * 60 * 60,
+        updateAge: 24 * 60 * 60
+    },
     callbacks: {
         session: async ({ session, token, user }) => {
             session.user = user;
+            session.accessToken = token.accessToken;
             console.log(session);
             return session;
         },
+        jwt: async ({ token, user, account, profile, isNewUser }) => {
+            console.log(`account:${JSON.stringify(account)}`);
+            if (account) {
+                token.accessToken = account.access_token;
+            }
+            console.log(token);
+            
+            return token
+        }
     },
 });
