@@ -1,4 +1,11 @@
-import { GetCodePostBody, GetCodePostFailedReponse, GetCodePostSuccessResponse, GetIdGetFailureResponse, GetIdGetQuery, GetIdGetSuccessResponse } from "types/api/Get";
+import {
+    GetCodePostBody,
+    GetCodePostFailedReponse,
+    GetCodePostSuccessResponse,
+    GetIdGetFailureResponse,
+    GetIdGetQuery,
+    GetIdGetSuccessResponse,
+} from "types/api/Get";
 
 export type Methods = {
     get: {
@@ -10,4 +17,4 @@ export type Methods = {
         reqBody: GetCodePostBody;
         resBody: GetCodePostSuccessResponse | GetCodePostFailedReponse;
     };
-}
+};

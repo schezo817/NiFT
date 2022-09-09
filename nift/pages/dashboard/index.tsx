@@ -16,7 +16,14 @@ const Dashboard: NextPage = () => {
 
     return (
         <div className="bg-white">
-            <div className="btn" onClick={() => {console.log(session)}}>Check Session</div>
+            <div
+                className="btn"
+                onClick={() => {
+                    console.log(session);
+                }}
+            >
+                Check Session
+            </div>
             {/* Top画像 */}
             <div className="min-w-fit max-h-32">
                 <img

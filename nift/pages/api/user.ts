@@ -18,9 +18,7 @@ export const handler: NextApiHandler = async (req, res) => {
                 try {
                     // Please Add Validation for Request
                     const id = "";
-                } catch (error) {
-
-                }
+                } catch (error) {}
                 break;
             /**
              * ユーザ情報を更新するAPI
@@ -33,8 +31,8 @@ export const handler: NextApiHandler = async (req, res) => {
             const id: string = "cl7un6nga0010r4mcd4zu0nov";
             const userResponse = await prisma.user.findUnique({
                 where: {
-                    id
-                }
+                    id,
+                },
             });
 
             console.log(userResponse);
@@ -42,16 +40,16 @@ export const handler: NextApiHandler = async (req, res) => {
             if (userResponse) {
                 const response: UserGetSuccessResponse = {
                     status: "success",
-                    data: userResponse
-                }
+                    data: userResponse,
+                };
                 res.status(200).json(response);
             } else {
                 const response: UserGetFailedResponse = {
                     status: "erorr",
                     data: {
-                        message: "User was not found."
-                    }
-                }
+                        message: "User was not found.",
+                    },
+                };
                 res.status(404).json(response);
             }
         } catch (error) {
@@ -63,12 +61,12 @@ export const handler: NextApiHandler = async (req, res) => {
         const response: UserGetFailedResponse = {
             status: "error",
             data: {
-                message: "UnAuthorized."
-            }
-        }
+                message: "UnAuthorized.",
+            },
+        };
         res.status(401).json(response);
     }
     res.end();
-}
+};
 
 export default handler;

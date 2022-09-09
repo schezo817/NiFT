@@ -5,4 +5,4 @@ export type Methods = {
         reqBody: CheckPostBody;
         resBody: CheckPostSuccessResponse | CheckPostFailureResponse;
     };
-}
+};

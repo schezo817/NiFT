@@ -12,9 +12,9 @@ export interface GetIdGetSuccessResponse extends BasicResponse {
         series_id: string; // series_nfts
         nft_name: string; // series_detail
         brand_name: string; // series_detail
-        description: string; // series_detail    
+        description: string; // series_detail
         common_image_url: string; // series_image
-    }
+    };
 }
 
 export interface GetIdGetFailureResponse extends FailedResponse {}
@@ -36,7 +36,7 @@ export interface GetCodePostSuccessResponse extends BasicResponse {
         rareity: string; // common, rare, very rare
         order: number; // #1, #2, #3, #4 ...
         wallet_address: string; // 企業のwallet Address (必要なければ消す)
-    }
+    };
 }
 
 export interface GetCodePostFailedReponse extends FailedResponse {}

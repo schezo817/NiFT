@@ -8,7 +8,7 @@ export interface CheckPostBody {
 export interface CheckPostSuccessResponse extends BasicResponse {
     data: {
         message: string; // 結果だけを返せば良い
-    }
+    };
 }
 
 export interface CheckPostFailureResponse extends FailedResponse {}

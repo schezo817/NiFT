@@ -2,7 +2,7 @@
 
 /** @type {Partial<import('aspida/dist/getConfigs').AspidaConfig>} */
 const aspidaConfig = {
-	input: "api",
-}
+    input: "api",
+};
 
-module.exports = aspidaConfig
+module.exports = aspidaConfig;

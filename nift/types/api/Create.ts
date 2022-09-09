@@ -17,7 +17,7 @@ export interface CreatePostBody {
 export interface CreatePostSuccessResponse extends BasicResponse {
     data: {
         message: string; // 配列をすべて返すとエグいことになるので返さない。結果だけ返す
-    }
+    };
 }
 
 export interface CreatePostFailedReponse extends FailedResponse {}

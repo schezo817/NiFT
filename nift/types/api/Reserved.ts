@@ -11,7 +11,7 @@ export interface ReservedGetSuccessResponse extends BasicResponse {
         brand_name: string;
         code: number;
         is_used: boolean;
-    }>
+    }>;
 }
 
 export interface ReservedGetFailedResponse extends FailedResponse {}

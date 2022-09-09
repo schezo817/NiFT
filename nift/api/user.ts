@@ -1,4 +1,11 @@
-import { UserGetQuery, UserGetSuccessResponse, UserGetFailedResponse, UserPostBody, UserPostSuccessResponse, UserPostFailedResponse } from "types/api/User";
+import {
+    UserGetQuery,
+    UserGetSuccessResponse,
+    UserGetFailedResponse,
+    UserPostBody,
+    UserPostSuccessResponse,
+    UserPostFailedResponse,
+} from "types/api/User";
 
 export type Methods = {
     get: {
@@ -10,4 +17,4 @@ export type Methods = {
         reqBody: UserPostBody;
         resBody: UserPostSuccessResponse | UserPostFailedResponse;
     };
-}
+};
