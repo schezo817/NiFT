@@ -10,125 +10,138 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model users {
-  user_id String @unique @db.Uuid // ユーザーID
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
 
-  user_auth user_auth?
-  user_detail user_detail?
-  user_flag user_status?
-  reserved_nfts reserved_nfts[]
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 
-  created_at  DateTime  @default(now())
-  updated_at  DateTime  @updatedAt
+  @@unique([provider, providerAccountId])
 }
 
-model user_auth {
-  foreign_id users @relation(fields: [user_id], references: [user_id])
-  user_id String  @unique @db.Uuid
-
-  email String @unique @db.VarChar(255)
-  wallet_address String? @db.VarChar(255) // ウォレットアドレス
-
-  created_at  DateTime  @default(now())
-  updated_at  DateTime  @updatedAt
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  created_at   DateTime @default(now())
+  updated_at   DateTime @updatedAt
 }
 
-model user_detail {
-  foreign_id users @relation(fields: [user_id], references: [user_id])
-  user_id String  @unique @db.Uuid
-
-  user_name String @db.VarChar(50) // ユーザ名
-  image_url String @db.VarChar(1024) // ユーザプロフィールのURL
-
-  created_at  DateTime  @default(now())
-  updated_at  DateTime  @updatedAt
+model User {
+  id             String          @id @default(cuid())
+  name           String?
+  email          String?         @unique
+  emailVerified  DateTime?
+  image          String?
+  user_name      String?         @default("名称未設定")
+  wallet_address String?         @default("")
+  is_company     Boolean?        @default(false)
+  accounts       Account[]
+  sessions       Session[]
+  reservedNfts   reserved_nfts[]
+  created_at     DateTime        @default(now())
+  updated_at     DateTime        @updatedAt
 }
 
-model user_status {
-  foreign_id users @relation(fields: [user_id], references: [user_id])
-  user_id String  @unique @db.Uuid
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 
-  is_company Boolean @default(false)
-
-  created_at  DateTime  @default(now())
-  updated_at  DateTime  @updatedAt
+  @@unique([identifier, token])
 }
 
 // Reserved NFT Model
 model reserved_nfts {
-  foreign_id  users @relation(fields: [user_id], references: [user_id])
-  user_id String  @unique @db.Uuid
+  foreign_id User   @relation(fields: [id], references: [id])
+  id         String @id
 
   series_id String @unique @db.Uuid
 
-  series_image series_image?
-  series_lot series_lot?
+  series_image  series_image?
+  series_lot    series_lot?
   series_detail series_detail?
-  series_nfts series_nfts[]
+  series_nfts   series_nfts[]
 
-  created_at  DateTime  @default(now())
-  updated_at  DateTime  @updatedAt
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 }
 
 model series_image {
   foreign_id reserved_nfts @relation(fields: [series_id], references: [series_id])
-  series_id String @unique @db.Uuid
+  series_id  String        @unique @db.Uuid
 
-  common_image_url String @db.VarChar(255)
-  rare_image_url String @db.VarChar(255)
+  common_image_url   String @db.VarChar(255)
+  rare_image_url     String @db.VarChar(255)
   veryrare_image_url String @db.VarChar(255)
 
-  created_at  DateTime  @default(now())
-  updated_at  DateTime  @updatedAt
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 }
 
 model series_lot {
   foreign_id reserved_nfts @relation(fields: [series_id], references: [series_id])
-  series_id String @unique @db.Uuid
+  series_id  String        @unique @db.Uuid
 
-  total_lots Int @db.Integer
-  total_used_lots Int @db.Integer
-  veryrare_lots Int @db.Integer
+  total_lots         Int @db.Integer
+  total_used_lots    Int @db.Integer
+  veryrare_lots      Int @db.Integer
   veryrare_used_lots Int @db.Integer
-  rare_lots Int @db.Integer
-  rare_used_lots Int @db.Integer
+  rare_lots          Int @db.Integer
+  rare_used_lots     Int @db.Integer
 
-  created_at  DateTime  @default(now())
-  updated_at  DateTime  @updatedAt
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 }
 
 model series_detail {
   foreign_id reserved_nfts @relation(fields: [series_id], references: [series_id])
-  series_id String @unique @db.Uuid
+  series_id  String        @unique @db.Uuid
 
-  nft_name String @db.VarChar(255) // NFTの名前
-  brand_name  String @db.VarChar(255) // ブランド名
-  description  String @db.VarChar(255) // NFTの説明
-  royalty_first  Decimal @db.Decimal(6,3) // NFTの流通によって得られるロイアリティの割合
+  nft_name      String  @db.VarChar(255) // NFTの名前
+  brand_name    String  @db.VarChar(255) // ブランド名
+  description   String  @db.VarChar(255) // NFTの説明
+  royalty_first Decimal @db.Decimal(6, 3) // NFTの流通によって得られるロイアリティの割合
 
-  created_at  DateTime  @default(now())
-  updated_at  DateTime  @updatedAt
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 }
 
 model series_nfts {
   foreign_id reserved_nfts @relation(fields: [series_id], references: [series_id])
-  series_id String @unique @db.Uuid
+  series_id  String        @unique @db.Uuid
 
   nft_id String @unique @db.Uuid
 
   nft_status nft_status?
 
-  created_at  DateTime  @default(now())
-  updated_at  DateTime  @updatedAt
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 }
 
 model nft_status {
   foreign_id series_nfts @relation(fields: [nft_id], references: [nft_id])
-  nft_id String @unique @db.Uuid
-  
-  nft_code Int @db.SmallInt
-  is_used Boolean
+  nft_id     String      @unique @db.Uuid
 
-  created_at  DateTime  @default(now())
-  updated_at  DateTime  @updatedAt
+  nft_code Int     @db.SmallInt
+  is_used  Boolean
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 }
