@@ -32,7 +32,7 @@ const Dashboard: NextPage = () => {
                             </div>
                         </div>
                         <div className="flex flex-col justify-center gap-4 p-4 w-96 max-w-full break-all">
-                            <p className="text-4xl font-bold">{"名称未設定"}</p>
+                            <p className="text-4xl font-bold">{session?.user?.name ?? "名称未設定"}</p>
                             <div className="flex items-center">
                                 <BsPatchCheck className="text-2xl mr-2" />
                                 <span>Wallet is connected</span>
