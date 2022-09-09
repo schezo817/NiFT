@@ -19,45 +19,45 @@ const Home: NextPage = () => {
                             </div>
                         </div>
                         <dl className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
-                            <div className="border-t border-gray-200 pt-4">
-                                <dt className="font-medium text-gray-900">Origin</dt>
-                                <dd className="mt-2 text-sm text-gray-500">
+                            <div className="border-t border-gray-50 pt-4">
+                                <dt className="font-medium text-gray-50">Origin</dt>
+                                <dd className="mt-2 text-sm text-gray-50">
                                     Designed by Good Goods, Inc.
                                 </dd>
                             </div>
 
-                            <div className="border-t border-gray-200 pt-4">
-                                <dt className="font-medium text-gray-900">Material</dt>
-                                <dd className="mt-2 text-sm text-gray-500">
+                            <div className="border-t border-gray-50 pt-4">
+                                <dt className="font-medium text-gray-50">Material</dt>
+                                <dd className="mt-2 text-sm text-gray-50">
                                     Solid walnut base with rare earth magnets and powder coated
                                     steel card cover
                                 </dd>
                             </div>
 
-                            <div className="border-t border-gray-200 pt-4">
-                                <dt className="font-medium text-gray-900">Dimensions</dt>
-                                <dd className="mt-2 text-sm text-gray-500">
+                            <div className="border-t border-gray-50 pt-4">
+                                <dt className="font-medium text-gray-50">Dimensions</dt>
+                                <dd className="mt-2 text-sm text-gray-50">
                                     6.25&quot; x 3.55&quot; x 1.15&quot;
                                 </dd>
                             </div>
 
-                            <div className="border-t border-gray-200 pt-4">
-                                <dt className="font-medium text-gray-900">Finish</dt>
-                                <dd className="mt-2 text-sm text-gray-500">
+                            <div className="border-t border-gray-50 pt-4">
+                                <dt className="font-medium text-gray-50">Finish</dt>
+                                <dd className="mt-2 text-sm text-gray-50">
                                     Hand sanded and finished with natural oil
                                 </dd>
                             </div>
 
-                            <div className="border-t border-gray-200 pt-4">
-                                <dt className="font-medium text-gray-900">Includes</dt>
-                                <dd className="mt-2 text-sm text-gray-500">
+                            <div className="border-t border-gray-50 pt-4">
+                                <dt className="font-medium text-gray-50">Includes</dt>
+                                <dd className="mt-2 text-sm text-gray-50">
                                     Wood card tray and 3 refill packs
                                 </dd>
                             </div>
 
-                            <div className="border-t border-gray-200 pt-4">
-                                <dt className="font-medium text-gray-900">Considerations</dt>
-                                <dd className="mt-2 text-sm text-gray-500">
+                            <div className="border-t border-gray-50 pt-4">
+                                <dt className="font-medium text-gray-50">Considerations</dt>
+                                <dd className="mt-2 text-sm text-gray-50">
                                     Made from natural materials. Grain and color vary with each
                                     item.
                                 </dd>
