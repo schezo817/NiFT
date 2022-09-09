@@ -79,7 +79,7 @@ export const handler: NextApiHandler = async (req, res) => {
                 const user_id: string = id as string;
                 const user_user_name: string = user_name as string;
                 const user_wallet_address: string = wallet_address as string;
-                
+
                 if (user_id === "") {
                     const response: UserGetFailedResponse = {
                         status: "failed",
@@ -97,7 +97,7 @@ export const handler: NextApiHandler = async (req, res) => {
                         data: {
                             user_name: user_user_name,
                             wallet_address: user_wallet_address,
-                        }
+                        },
                     });
 
                     console.log("User Response: \n", userResponse);

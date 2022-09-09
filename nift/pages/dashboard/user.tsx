@@ -12,7 +12,7 @@ export const UserEdit: NextPage = () => {
         required: true,
         onUnauthenticated() {
             router.push("/");
-        }
+        },
     });
 
     const [user, setUser] = useState<User>();
@@ -27,16 +27,16 @@ export const UserEdit: NextPage = () => {
             if (session) {
                 const userResponse = await apiClient.user.$get({
                     query: {
-                        id: session?.id
-                    }
-                })
+                        id: session?.id,
+                    },
+                });
                 if (userResponse.status === "success") {
                     setUser(userResponse.data as User);
                 } else {
-                    console.error("Something went wrong")
+                    console.error("Something went wrong");
                 }
             }
-        }
+        };
 
         exec();
     }, []);
@@ -51,7 +51,7 @@ export const UserEdit: NextPage = () => {
 
     const handleUserNameInput = (event: React.ChangeEvent<HTMLInputElement>) => {
         setUserName(event.target.value);
-    }
+    };
 
     const postUserUpdate = async () => {
         try {
@@ -59,8 +59,8 @@ export const UserEdit: NextPage = () => {
                 body: {
                     id: user?.id as string,
                     user_name: userName,
-                    wallet_address: walletAddress
-                }
+                    wallet_address: walletAddress,
+                },
             });
             console.log(userResponse);
             if (userResponse.status === "success") {
@@ -70,7 +70,7 @@ export const UserEdit: NextPage = () => {
         } catch (error) {
             console.error(error);
         }
-    }
+    };
 
     return (
         <div className="p-4">
@@ -113,30 +113,25 @@ export const UserEdit: NextPage = () => {
                 <div className="flex flex-col">
                     <div className="flex flex-row items-center justify-between">
                         <h4 className="font-bold text-xl">Google アカウント</h4>
-                        <kbd className="kbd text-sm">
-                            {user?.email ?? ""}
-                        </kbd>
+                        <kbd className="kbd text-sm">{user?.email ?? ""}</kbd>
                     </div>
                 </div>
                 <div className="flex flex-col">
                     <div className="flex flex-row items-center justify-between">
                         <h4 className="font-bold text-xl">Wallet アドレス</h4>
-                        <button className="btn btn-secondary">{user?.wallet_address ? "再" : ""}接続する</button>
+                        <button className="btn btn-secondary">
+                            {user?.wallet_address ? "再" : ""}接続する
+                        </button>
                     </div>
                     <div className="p-4">
-                        {
-                            user?.wallet_address ? (
-                                <kbd className="kbd text-sm">{user?.wallet_address}</kbd>
-                            ) : (
-                                <></>
-                            )
-                        }
+                        {user?.wallet_address ? (
+                            <kbd className="kbd text-sm">{user?.wallet_address}</kbd>
+                        ) : (
+                            <></>
+                        )}
                     </div>
                 </div>
-                <div
-                    className="btn w-full"
-                    onClick={postUserUpdate}
-                >
+                <div className="btn w-full" onClick={postUserUpdate}>
                     保存する
                 </div>
             </div>
