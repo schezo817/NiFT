@@ -5,7 +5,9 @@
     "license": "UNLICENSED",
     "scripts": {
         "dev": "next dev",
-        "build": "next build",
+        "dev:aspida": "aspida --watch",
+        "aspida": "aspida",
+        "build": "aspida && next build",
         "start": "next start",
         "lint": "next lint --dir pages",
         "lint:check": "prettier --check --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'",
@@ -17,11 +19,13 @@
         "deploy": "hardhat run scripts/Lock.js --network localhost"
     },
     "dependencies": {
+        "@aspida/axios": "^1.11.0",
         "@headlessui/react": "^1.6.6",
         "@heroicons/react": "^1.0.6",
         "@next-auth/prisma-adapter": "^1.0.4",
         "@openzeppelin/contracts": "^4.7.3",
         "@prisma/client": "^4.3.1",
+        "axios": "^0.27.2",
         "daisyui": "^2.24.0",
         "dotenv": "^16.0.2",
         "next": "^12.2.5",

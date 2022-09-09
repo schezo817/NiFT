@@ -1,22 +1,61 @@
 import { NextPage } from "next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { BsPatchCheck } from "react-icons/bs";
-import NFTMyCard from "components/NFTMyCard";
+import { BsPatchCheck, BsInfoCircle } from "react-icons/bs";
 import { nftItemsTest } from "toy/nftItemsTest";
+import { User } from ".prisma/client";
+import { getSession, useSession } from "next-auth/react";
+import { apiClient } from "lib/apiClient";
+import { useRouter } from "next/router";
 import { MarketNFT, ReservedNFT } from "types/nfts";
 import { reservedNFTTest } from "toy/reservedItemsTest";
-import { QRCode } from "components/QRCode";
-import { useSession } from "next-auth/react";
+
+import NFTMyCard from "components/NFTMyCard";
+import QRCode from "components/QRCode";
 
 const Dashboard: NextPage = () => {
-    const { data: session, status } = useSession();
+    const router = useRouter();
+    const { data: session, status } = useSession({
+        required: true,
+        onUnauthenticated() {
+            router.push("/");
+        },
+    });
+
     const [myNFT, setMyNFT] = useState<MarketNFT>(nftItemsTest);
+    const [user, setUser] = useState<User>();
     const [reservedNFT, setReservedNFT] = useState<ReservedNFT>(reservedNFTTest);
 
+    useEffect(() => {
+        const exec = async () => {
+            // sessionのデータを確実に取得する
+            const session = await getSession();
+
+            if (session) {
+                const userResponse = await apiClient.user.$get({
+                    query: {
+                        id: session?.id,
+                    },
+                });
+                if (userResponse.status === "success") {
+                    setUser(userResponse.data as User);
+                } else {
+                    console.error("Something went wrong.");
+                }
+            }
+        };
+        exec();
+    }, []);
     return (
         <div className="bg-white">
-            <div className="btn" onClick={() => {console.log(session)}}>Check Session</div>
+            <div
+                className="btn"
+                onClick={() => {
+                    console.log(session);
+                }}
+            >
+                Check Session
+            </div>
             {/* Top画像 */}
             <div className="min-w-fit max-h-32">
                 <img
@@ -29,18 +68,25 @@ const Dashboard: NextPage = () => {
                     <div className="flex flex-row flex-wrap justify-start gap-4 p-4 w-full">
                         <div className="avatar px-0 md:px-8">
                             <div className="w-48 h-48 rounded-full">
-                                <img src={session?.user?.image ?? ""} />
+                                <img src={user?.image ?? ""} />
                             </div>
                         </div>
                         <div className="flex flex-col justify-center gap-4 p-4 w-96 max-w-full break-all">
-                            <p className="text-4xl font-bold">
-                                {session?.user?.name ?? "名称未設定"}
-                            </p>
+                            <p className="text-4xl font-bold">{user?.user_name ?? "名称未設定"}</p>
                             <div className="flex items-center">
-                                <BsPatchCheck className="text-2xl mr-2" />
-                                <span>Wallet is connected</span>
+                                {user?.wallet_address ? (
+                                    <>
+                                        <BsPatchCheck className="text-2xl mr-2" />
+                                        <span>Wallet is connected</span>
+                                    </>
+                                ) : (
+                                    <>
+                                        <BsInfoCircle className="text-2xl mr-2" />
+                                        <span>Wallet is Disconnected</span>
+                                    </>
+                                )}
                             </div>
-                            <p>0x9edd29d64b3bcd5378b18ee59fc66e90</p>
+                            <p>{user?.wallet_address}</p>
                             <Link href={"/dashboard/user"}>
                                 <div className="btn modal-button btn-primary">編集</div>
                             </Link>
