@@ -19,7 +19,10 @@ const Footer = () => {
                         <a className="link link-hover">DashBoard</a>
                     </Link>
                 ):(
-                    <></>
+                    // <></>
+                    <Link href={"/dashboard"}>
+                        <a className="link link-hover">DashBoard</a>
+                    </Link>
                 )}
             </div>
 
@@ -30,10 +33,7 @@ const Footer = () => {
                 </Link>
 
                 {status === "authenticated" ? (
-                    // <></>
-                    <Link href={"/login"}>
-                        <a className="link link-hover">Login</a>
-                    </Link>
+                    <></>
                 ) : (
                     <Link href={"/login"}>
                         <a className="link link-hover">Login</a>
