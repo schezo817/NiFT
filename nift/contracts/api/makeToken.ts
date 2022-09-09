@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { ethers } from 'ethers'
 import artifact from "../../artifacts/contracts/NFTMarketPlace.sol/NFTMarketPlace.json";
 
-const MakeToken = () => {
+const makeToken = () => {
     const [msg, setMsg] = useState("");
     const contractAddress = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
 
@@ -34,4 +34,4 @@ const MakeToken = () => {
     };
 };
 
-export default MakeToken;
+export default makeToken;
