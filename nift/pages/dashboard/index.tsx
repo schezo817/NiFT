@@ -15,10 +15,10 @@ const Dashboard: NextPage = () => {
     const [reservedNFT, setReservedNFT] = useState<ReservedNFT>(reservedNFTTest);
 
     useEffect(() => {
-        if(session) {
+        if (session) {
             console.log(session);
         }
-    },[]);
+    }, []);
 
     return (
         <div className="bg-white">
