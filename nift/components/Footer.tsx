@@ -30,7 +30,10 @@ const Footer = () => {
                 </Link>
 
                 {status === "authenticated" ? (
-                    <></>
+                    // <></>
+                    <Link href={"/login"}>
+                        <a className="link link-hover">Login</a>
+                    </Link>
                 ) : (
                     <Link href={"/login"}>
                         <a className="link link-hover">Login</a>
