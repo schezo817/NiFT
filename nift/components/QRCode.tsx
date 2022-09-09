@@ -9,3 +9,6 @@ export const QRCode = (props: QRCodeProps) => {
 
     return <Canvas text={props.text} />;
 };
+
+
+export default QRCode;
