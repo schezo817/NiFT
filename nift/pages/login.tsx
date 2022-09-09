@@ -1,7 +1,12 @@
 import { NextPage } from "next";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const Login: NextPage = () => {
+    const { data: session, status } = useSession();
+    const router = useRouter();
+
     return (
         // Heroの作成
         <div className="bg-gradient-to-r from-indigo-800 to-pink-500">
@@ -20,7 +25,7 @@ const Login: NextPage = () => {
                             <p className="py-2 text-white">NiFT | NFT + gift</p>
                             <div className="card-actions w-full justify-center">
                                 <button className="btn w-full my-2 btn-primary"
-                                    onClick={() => {signIn("google")}}
+                                    onClick={() => { signIn("google") }}
                                 >
                                     Googleでログイン
                                 </button>

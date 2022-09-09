@@ -1,7 +1,16 @@
 import { NextPage } from "next";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
+import { useEffect } from "react";
 
 const Home: NextPage = () => {
+    const { data: session, status } = useSession();
+
+    useEffect(() => {
+        if(session) {
+            console.log(session);
+        }
+    },[]);
     return (
         <div className="hero min-h-screen bg-gradient-to-r from-indigo-800 to-pink-500 text-white">
             <div className="hero-content flex-col lg:flex-row-reverse">

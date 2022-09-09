@@ -1,14 +1,19 @@
 import { NextPage } from "next";
+import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 import { BsPatchCheck } from "react-icons/bs";
 
-export const User = () => {
+export const User: NextPage = () => {
+    const { data: session, status } = useSession();
+    const router = useRouter();
+
     return (
         <div className="p-4">
             <h1 className="px-8 text-3xl font-bold">ユーザ情報</h1>
             <div className="flex flex-row flex-wrap justify-center gap-4 p-4 w-full">
                 <div className="avatar px-8">
                     <div className="w-48 h-48 rounded-full">
-                        <img src="https://placeimg.com/192/192/people" alt={"user-icon"} />
+                        <img src={session?.user?.image ?? ""} alt={"user-icon"} />
                     </div>
                 </div>
                 <div className="flex flex-col justify-center gap-4 p-4 w-96 max-w-full break-all">
@@ -33,10 +38,7 @@ export const User = () => {
                 <div className="flex flex-col">
                     <div className="flex flex-row items-center justify-between">
                         <h4 className="font-bold text-xl">Google アカウント</h4>
-                        <button className="btn btn-secondary">再接続</button>
-                    </div>
-                    <div className="p-4">
-                        <kbd className="kbd text-sm">nift-official@gmail.com</kbd>
+                        <kbd className="kbd text-sm">{session?.user?.email ?? "unlinked@gmail.com"}</kbd>
                     </div>
                 </div>
                 <div className="flex flex-col">
@@ -52,6 +54,9 @@ export const User = () => {
                     className="btn w-full"
                     onClick={() => {
                         console.log("Save Accounts");
+
+                        // 保存が正常に完了したらdashboardに戻る
+                        router.push("/dashboard");
                     }}
                 >
                     保存する

@@ -6,6 +6,7 @@ import { signOut, useSession } from "next-auth/react";
 
 const Navbar = () => {
     const { data: session, status } = useSession();
+
     return (
         <div className="navbar bg-base-100 fixed z-50">
             <div className="navbar-start">
@@ -105,7 +106,7 @@ const Navbar = () => {
                     <div className="dropdown dropdown-end ml-2">
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
-                                <img src="https://placeimg.com/80/80/people" />
+                                <img src={session.user?.image ?? ""} />
                             </div>
                         </label>
                         <ul

@@ -7,8 +7,10 @@ import { nftItemsTest } from "toy/nftItemsTest";
 import { MarketNFT, ReservedNFT } from "types/nfts";
 import { reservedNFTTest } from "toy/reservedItemsTest";
 import { QRCode } from "components/QRCode";
+import { useSession } from "next-auth/react";
 
 const Dashboard: NextPage = () => {
+    const { data: session, status} = useSession();
     const [myNFT, setMyNFT] = useState<MarketNFT>(nftItemsTest);
     const [reservedNFT, setReservedNFT] = useState<ReservedNFT>(reservedNFTTest);
 
@@ -26,11 +28,11 @@ const Dashboard: NextPage = () => {
                     <div className="flex flex-row flex-wrap justify-start gap-4 p-4 w-full">
                         <div className="avatar px-0 md:px-8">
                             <div className="w-48 h-48 rounded-full">
-                                <img src="https://placeimg.com/192/192/people" />
+                                <img src={session?.user?.image ?? ""} />
                             </div>
                         </div>
                         <div className="flex flex-col justify-center gap-4 p-4 w-96 max-w-full break-all">
-                            <p className="text-4xl font-bold">NiFT Official</p>
+                            <p className="text-4xl font-bold">{"名称未設定"}</p>
                             <div className="flex items-center">
                                 <BsPatchCheck className="text-2xl mr-2" />
                                 <span>Wallet is connected</span>
