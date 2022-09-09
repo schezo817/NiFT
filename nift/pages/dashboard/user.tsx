@@ -1,11 +1,57 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
-import { useSession } from "next-auth/react";
-import { BsPatchCheck } from "react-icons/bs";
+import { getSession, useSession } from "next-auth/react";
+import { BsInfoCircle, BsPatchCheck } from "react-icons/bs";
+import React, { useEffect, useState } from "react";
+import { apiClient } from "lib/apiClient";
+import { User } from ".prisma/client";
 
-export const User: NextPage = () => {
-    const { data: session, status } = useSession();
+export const UserEdit: NextPage = () => {
     const router = useRouter();
+    const { data: session, status } = useSession({
+        required: true,
+        onUnauthenticated() {
+            router.push("/");
+        }
+    });
+
+    const [user, setUser] = useState<User>();
+    const [userName, setUserName] = useState<string>("名称未設定");
+    // metamask接続時にはここの初期値を外す事
+    const [walletAddress, setWalletAddress] = useState<string>("0x000000000");
+
+    useEffect(() => {
+        const exec = async () => {
+            const session = await getSession();
+
+            if (session) {
+                const userResponse = await apiClient.user.$get({
+                    query: {
+                        id: session?.id
+                    }
+                })
+                if (userResponse.status === "success") {
+                    setUser(userResponse.data as User);
+                } else {
+                    console.error("Something went wrong")
+                }
+            }
+        }
+
+        exec();
+    }, []);
+
+    // ページがリロードなどされた際、ユーザー名とウォレットアドレスについてはUserAPIから取得したものを使用する
+    useEffect(() => {
+        if (user) {
+            setUserName(user?.user_name as string);
+            setWalletAddress(user?.wallet_address as string);
+        }
+    }, [user]);
+
+    const handleUserNameInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setUserName(event.target.value);
+    }
 
     return (
         <div className="p-4">
@@ -13,16 +59,25 @@ export const User: NextPage = () => {
             <div className="flex flex-row flex-wrap justify-center gap-4 p-4 w-full">
                 <div className="avatar px-8">
                     <div className="w-48 h-48 rounded-full">
-                        <img src={session?.user?.image ?? ""} alt={"user-icon"} />
+                        <img src={user?.image ?? ""} alt={"user-icon"} />
                     </div>
                 </div>
                 <div className="flex flex-col justify-center gap-4 p-4 w-96 max-w-full break-all">
-                    <p className="text-4xl font-bold">NiFT Official</p>
+                    <p className="text-4xl font-bold">{user?.user_name}</p>
                     <div className="flex items-center">
-                        <BsPatchCheck className="text-2xl mr-2" />
-                        <span>Wallet is connected</span>
+                        {user?.wallet_address ? (
+                            <>
+                                <BsPatchCheck className="text-2xl mr-2" />
+                                <span>Wallet is connected</span>
+                            </>
+                        ) : (
+                            <>
+                                <BsInfoCircle className="text-2xl mr-2" />
+                                <span>Wallet is Disconnected</span>
+                            </>
+                        )}
                     </div>
-                    <p>0x9edd29d64b3bcd5378b18ee59fc66e90</p>
+                    <p>{user?.wallet_address}</p>
                 </div>
             </div>
             <div className="flex flex-col gap-y-4 container max-w-2xl mx-auto">
@@ -31,7 +86,8 @@ export const User: NextPage = () => {
                     <h4 className="font-bold text-xl">ユーザ名</h4>
                     <input
                         type="text"
-                        placeholder="Type here"
+                        value={userName}
+                        onChange={handleUserNameInput}
                         className="input input-bordered max-w-xs"
                     />
                 </div>
@@ -39,17 +95,23 @@ export const User: NextPage = () => {
                     <div className="flex flex-row items-center justify-between">
                         <h4 className="font-bold text-xl">Google アカウント</h4>
                         <kbd className="kbd text-sm">
-                            {session?.user?.email ?? "unlinked@gmail.com"}
+                            {user?.email ?? ""}
                         </kbd>
                     </div>
                 </div>
                 <div className="flex flex-col">
                     <div className="flex flex-row items-center justify-between">
                         <h4 className="font-bold text-xl">Wallet アドレス</h4>
-                        <button className="btn btn-secondary">再接続</button>
+                        <button className="btn btn-secondary">{user?.wallet_address ? "再" : ""}接続する</button>
                     </div>
                     <div className="p-4">
-                        <kbd className="kbd text-sm">0x6a757c4f44198a20aac95dd77460c824</kbd>
+                        {
+                            user?.wallet_address ? (
+                                <kbd className="kbd text-sm">{user?.wallet_address}</kbd>
+                            ) : (
+                                <></>
+                            )
+                        }
                     </div>
                 </div>
                 <div
@@ -68,4 +130,4 @@ export const User: NextPage = () => {
     );
 };
 
-export default User;
+export default UserEdit;
