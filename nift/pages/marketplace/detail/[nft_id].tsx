@@ -46,20 +46,7 @@ const Detail: NextPage = () => {
                         <div className="space-y-6 mt-10">
                             <p className="text-base text-gray-900">{detailNFT.description}</p>
                         </div>
-                        <div className="mb-10">
-                            <label htmlFor="buy-modal" className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 btn modal-button">Buy Now</label>
-                        </div>
-
-                        {/* <!-- 購入確定 modal --> */}
-                        <input type="checkbox" id="buy-modal" className="modal-toggle" />
-                        <div className="modal">
-                            <div className="modal-box relative">
-                                <label htmlFor="buy-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                                <h3 className="text-lg font-bold">購入を確定する場合パスワードを入力してください</h3>
-                                <input type="text" placeholder="Enter your password" className="mt-3 input-bordered w-full" />
-                                <button className="mt-3 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 btn">Buy</button>
-                            </div>
-                        </div>
+                        <div className="my-10 btn btn-primary w-full">Buy Now</div>
                     </div>
                 </div>
             </div>
