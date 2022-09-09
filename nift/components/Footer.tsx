@@ -41,15 +41,15 @@ const Footer = () => {
                 )}
             </div>
 
-            <div>
+            {/* <div>
                 <span className="footer-title">Legal</span>
                 <a className="link link-hover">Terms of use</a>
                 <a className="link link-hover">Privacy policy</a>
                 <a className="link link-hover">Cookie policy</a>
-            </div>
+            </div> */}
 
             <div>
-                <span className="footer-title">Social</span>
+                {/* <span className="footer-title">Social</span>
                 <div className="grid grid-flow-col gap-4">
                     <a>
                         <FaTwitter className="text-2xl" />
@@ -57,7 +57,7 @@ const Footer = () => {
                     <a>
                         <FaGithub className="text-2xl" />
                     </a>
-                </div>
+                </div> */}
                 <p>Copyright © 2022 - All right reserved by NiFT Project</p>
             </div>
         </div>
