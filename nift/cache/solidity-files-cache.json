@@ -1,44 +1,9 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/Users/akito/Nift/NiFT/nift/contracts/Lock.sol": {
-      "lastModificationDate": 1662685206987,
-      "contentHash": "42bec78398e7cc5b67773ec8314f255c",
-      "sourceName": "contracts/Lock.sol",
-      "solcConfig": {
-        "version": "0.8.9",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.9"
-      ],
-      "artifacts": [
-        "Lock"
-      ]
-    },
     "/Users/akito/Nift/NiFT/nift/contracts/NFTMarketPlace.sol": {
-      "lastModificationDate": 1662685206989,
-      "contentHash": "18d85715d2ddb13682f83bd903f426b2",
+      "lastModificationDate": 1662740467399,
+      "contentHash": "ecfed99651155df8421497f5bd414c7c",
       "sourceName": "contracts/NFTMarketPlace.sol",
       "solcConfig": {
         "version": "0.8.9",

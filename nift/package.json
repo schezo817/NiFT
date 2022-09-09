@@ -14,7 +14,7 @@
         "db:migrate": "prisma migrate dev --preview-feature",
         "test": "hardhat test test/Lock.js --network localhost",
         "localchain": "hardhat node",
-        "deploy": "hardhat run scripts/Lock.js --network localhost"
+        "deploy": "hardhat run scripts/deploy.js --network localhost"
     },
     "dependencies": {
         "@headlessui/react": "^1.6.6",

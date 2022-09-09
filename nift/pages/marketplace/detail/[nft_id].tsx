@@ -2,7 +2,8 @@ import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { NFT } from "types/nfts";
-import { ethers } from "ethers"
+import { ethers } from "ethers";
+import { MakeToken } from "contracts/api/makeToken";
 
 const Detail: NextPage = () => {
     const router = useRouter();
@@ -22,30 +23,34 @@ const Detail: NextPage = () => {
     const [isVerified, setIsVerified] = useState(false)
 
     const onClick = async () => {
-      if (!(window as any).ethereum) {
-        console.error('!window.ethereum')
-        return
-      }
-  
-      const provider = new ethers.providers.Web3Provider((window as any).ethereum)
-      await provider.send('eth_requestAccounts', [])
-  
-      const signer = await provider.getSigner()
-      const message = 'message'
-      const address = await signer.getAddress()
-      const signature = await signer.signMessage(message)
-      const response = await fetch('/api/verify', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json; charset=UTF-8',
-        },
-        body: JSON.stringify({ message, address, signature }),
-      })
-  
-      const body = await response.json()
-      setIsVerified(body.isVerified)
+        if (!(window as any).ethereum) {
+            console.error('!window.ethereum')
+            return
+        }
+
+        const provider = new ethers.providers.Web3Provider((window as any).ethereum)
+        await provider.send('eth_requestAccounts', [])
+
+        const signer = await provider.getSigner()
+        const message = 'message'
+        const address = await signer.getAddress()
+        const signature = await signer.signMessage(message)
+        const response = await fetch('/api/verify', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+            },
+            body: JSON.stringify({ message, address, signature }),
+        })
+
+        const body = await response.json()
+        setIsVerified(body.isVerified)
+
+        if (body.isVerified) {
+            const tokenId = MakeToken.getToken(detailNFT.nft_name, detailNFT.description, detailNFT.image_url, detailNFT.price)
+        }
     }
-  
+
 
     return (
         <div className="bg-white">

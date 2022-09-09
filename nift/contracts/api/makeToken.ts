@@ -1,11 +1,10 @@
-import schema from "../../prisma/schema.prisma";
-import NFTMarketPlace from "../NFTMarketPlace.sol";
+import { NFTMarketPlace } from "../NFTMarketPlace.sol";
 import { ethers } from "ethers";
+
 
 class makeToken {
     private nmp: any;
     constructor() {
-        const provider = new ethers.providers.JsonRpcProvider();
         this.nmp = new NFTMarketPlace("NiFTItem", "NIFI");
     }
 
@@ -24,3 +23,5 @@ class makeToken {
         this.nmp.createMarketItem(tokenId, price);
     }
 }
+
+export const MakeToken = new makeToken();
