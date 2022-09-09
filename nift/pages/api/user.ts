@@ -25,7 +25,7 @@ export const handler: NextApiHandler = async (req, res) => {
                             message: "id is required."
                         }
                     }
-                    res.status(400).send(response);
+                    return res.status(400).json(response);
                 } else if (user_id !== "") {
                     const userResponse = await prisma.user.findUnique({
                         where: {
@@ -33,14 +33,14 @@ export const handler: NextApiHandler = async (req, res) => {
                         }
                     });
 
-                    console.log(userResponse);
+                    console.log("User Response: \n", userResponse);
 
                     if (userResponse) {
                         const response: UserGetSuccessResponse = {
                             status: "success",
                             data: userResponse,
                         };
-                        res.status(200).json(response);
+                        return res.status(200).json(response);
                     } else {
                         const response: UserGetFailedResponse = {
                             status: "failed",
@@ -48,7 +48,7 @@ export const handler: NextApiHandler = async (req, res) => {
                                 message: "User was not found.",
                             },
                         };
-                        res.status(404).json(response);
+                        return res.status(404).json(response);
                     }
                 }
                 const response: UserGetFailedResponse = {
@@ -57,7 +57,7 @@ export const handler: NextApiHandler = async (req, res) => {
                         message: "Something is wrong."
                     }
                 }
-                res.status(500).json(response);
+                return res.status(500).json(response);
              } catch (error) {
                 // ValidationError or more error
                 const response: UserGetFailedResponse = {
@@ -66,7 +66,7 @@ export const handler: NextApiHandler = async (req, res) => {
                         message: "Something is wrong."
                     }
                 }
-                res.status(500).json(response);
+                return res.status(500).json(response);
             }
         }
 
@@ -80,9 +80,8 @@ export const handler: NextApiHandler = async (req, res) => {
                 message: "UnAuthorized.",
             },
         };
-        res.status(401).json(response);
-    }
-    res.end();
+        return res.status(401).json(response);
+    }    
 };
 
 export default handler;
