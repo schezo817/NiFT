@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { NFT } from "types/nfts";
 import { ethers } from "ethers";
-import { MakeToken } from "contracts/api/makeToken";
 
 const Detail: NextPage = () => {
     const router = useRouter();
@@ -45,10 +44,6 @@ const Detail: NextPage = () => {
 
         const body = await response.json()
         setIsVerified(body.isVerified)
-
-        if (body.isVerified) {
-            const tokenId = MakeToken.getToken(detailNFT.nft_name, detailNFT.description, detailNFT.image_url, detailNFT.price)
-        }
     }
 
 

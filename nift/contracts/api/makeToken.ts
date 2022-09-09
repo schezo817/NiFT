@@ -1,27 +1,37 @@
-import { NFTMarketPlace } from "../NFTMarketPlace.sol";
-import { ethers } from "ethers";
+import { useState, useEffect } from 'react'
+import { ethers } from 'ethers'
+import artifact from "../../artifacts/contracts/NFTMarketPlace.sol/NFTMarketPlace.json";
 
+const MakeToken = () => {
+    const [msg, setMsg] = useState("");
+    const contractAddress = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
 
-class makeToken {
-    private nmp: any;
-    constructor() {
-        this.nmp = new NFTMarketPlace("NiFTItem", "NIFI");
-    }
+    useEffect(() => {
+        const marketItemCreatedCatch = (_tokenId: any, _seller: any, _owner: any, _price: any, _sold: any) => {
+            console.log("tokenId: ", _tokenId);
+            console.log("seller: ", _seller);
+            console.log("owner: ", _owner);
+            console.log("price: ", _price);
+            console.log("sold: ", _sold);
+        };
+        const provider = new ethers.providers.Web3Provider((window as any).ethereum);
+        const signer = provider.getSigner();
+        const contract = new ethers.Contract(contractAddress, artifact.abi, signer);
+        const filter = contract.filters.MarketItemCreated(null, null, null, null, null);
+        contract.on(filter, marketItemCreatedCatch);
+    }, []);
 
-    public getToken(name: String, description: String, imageurl: String, price: number): String {
-        var json = '{"name": [' + name + '],"description": [' + description + '],"image": [' + imageurl + ']}';
-        var tokenURI = JSON.parse(json);
-        const tokenid = this.nmp.createToken(tokenURI, price);
-        return tokenid;
-    }
+    const doMessage = async () => {
+        const provider = new ethers.providers.Web3Provider((window as any).ethereum);
+        const accounts = await provider.send("eth_requestAccounts", []);
+        const signer = provider.getSigner();
+        const contract = new ethers.Contract(contractAddress, artifact.abi, signer);
+        contract.message(msg);
+    };
 
-    public exhibitToken(tokenId: string): void {
-        this.nmp.createMarketSale(tokenId);
-    }
+    const doChange = (e: any) => {
+        setMsg(e.target.value);
+    };
+};
 
-    public sellToken(tokenId: string, price: number): void {
-        this.nmp.createMarketItem(tokenId, price);
-    }
-}
-
-export const MakeToken = new makeToken();
+export default MakeToken;

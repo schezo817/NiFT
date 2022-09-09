@@ -41,7 +41,7 @@ contract NFTMarketplace is ERC721URIStorage{
     bool indexed sold
   );
   //初期動作
-  constructor(string memory name,string memory symbol) ERC721(name, symbol) {
+  constructor() ERC721("NiFT Items Token", "NIIT") {
     //所有者をこのコンストラクタを呼んだアドレスに
     owner = payable(msg.sender);
   }
