@@ -24,8 +24,11 @@ const Login: NextPage = () => {
                             <h2 className="card-title text-5xl text-white">Start and get NiFT!</h2>
                             <p className="py-2 text-white">NiFT | NFT + gift</p>
                             <div className="card-actions w-full justify-center">
-                                <button className="btn w-full my-2 btn-primary"
-                                    onClick={() => { signIn("google") }}
+                                <button
+                                    className="btn w-full my-2 btn-primary"
+                                    onClick={() => {
+                                        signIn("google");
+                                    }}
                                 >
                                     Googleでログイン
                                 </button>

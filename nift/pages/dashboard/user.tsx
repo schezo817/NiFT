@@ -38,7 +38,9 @@ export const User: NextPage = () => {
                 <div className="flex flex-col">
                     <div className="flex flex-row items-center justify-between">
                         <h4 className="font-bold text-xl">Google アカウント</h4>
-                        <kbd className="kbd text-sm">{session?.user?.email ?? "unlinked@gmail.com"}</kbd>
+                        <kbd className="kbd text-sm">
+                            {session?.user?.email ?? "unlinked@gmail.com"}
+                        </kbd>
                     </div>
                 </div>
                 <div className="flex flex-col">

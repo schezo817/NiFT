@@ -10,7 +10,7 @@ import { QRCode } from "components/QRCode";
 import { useSession } from "next-auth/react";
 
 const Dashboard: NextPage = () => {
-    const { data: session, status} = useSession();
+    const { data: session, status } = useSession();
     const [myNFT, setMyNFT] = useState<MarketNFT>(nftItemsTest);
     const [reservedNFT, setReservedNFT] = useState<ReservedNFT>(reservedNFTTest);
 

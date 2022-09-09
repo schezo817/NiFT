@@ -26,20 +26,18 @@ const Navbar = () => {
                                 </a>
                             </li>
                         </Link>
-                        {
-                            status === "authenticated" ? (
-                                <Link href={"/dashboard"}>
-                                    <li>
-                                        <a>
-                                            <MdOutlineHome className="text-xl" />
-                                            <span>Dashboard</span>
-                                        </a>
-                                    </li>
-                                </Link>
-                            ) : (
-                                <></>
-                            )
-                        }
+                        {status === "authenticated" ? (
+                            <Link href={"/dashboard"}>
+                                <li>
+                                    <a>
+                                        <MdOutlineHome className="text-xl" />
+                                        <span>Dashboard</span>
+                                    </a>
+                                </li>
+                            </Link>
+                        ) : (
+                            <></>
+                        )}
                     </ul>
                 </div>
                 <Link href={"/"}>
@@ -57,43 +55,39 @@ const Navbar = () => {
                             </a>
                         </li>
                     </Link>
-                    {
-                        status === "authenticated" ? (
-                            <li tabIndex={0}>
-                                <Link href={"/dashboard"}>
-                                    <a className="align-center">
-                                        <MdOutlineHome className="text-xl" />
-                                        <span>DashBoard</span>
-                                        <HiChevronDown className="text-xl" />
-                                    </a>
+                    {status === "authenticated" ? (
+                        <li tabIndex={0}>
+                            <Link href={"/dashboard"}>
+                                <a className="align-center">
+                                    <MdOutlineHome className="text-xl" />
+                                    <span>DashBoard</span>
+                                    <HiChevronDown className="text-xl" />
+                                </a>
+                            </Link>
+                            <ul className="p-2 bg-white w-full">
+                                <Link href={"/dashboard/nft/create"}>
+                                    <li>
+                                        <a>Create NiFTs</a>
+                                    </li>
                                 </Link>
-                                <ul className="p-2 bg-white w-full">
-                                    <Link href={"/dashboard/nft/create"}>
-                                        <li>
-                                            <a>Create NiFTs</a>
-                                        </li>
-                                    </Link>
-                                </ul>
-                            </li>
-                        ) : (
-                            <></>
-                        )
-                    }
+                            </ul>
+                        </li>
+                    ) : (
+                        <></>
+                    )}
                 </ul>
 
                 {/* ボタン */}
-                {
-                    status === "authenticated" ? (
-                        <></>
-                    ) : (
-                        <Link href={"/login"}>
-                            <button className="btn items-center btn-primary">
-                                <MdLogin className="text-xl" />
-                                <span className="hidden sm:inline-block pl-2">LogIn</span>
-                            </button>
-                        </Link>
-                    )
-                }
+                {status === "authenticated" ? (
+                    <></>
+                ) : (
+                    <Link href={"/login"}>
+                        <button className="btn items-center btn-primary">
+                            <MdLogin className="text-xl" />
+                            <span className="hidden sm:inline-block pl-2">LogIn</span>
+                        </button>
+                    </Link>
+                )}
                 <Link href={"/get"}>
                     <button className="btn items-center btn-primary">
                         <AiOutlineGift className="text-xl" />
@@ -101,32 +95,30 @@ const Navbar = () => {
                     </button>
                 </Link>
             </div>
-            {
-                status === "authenticated" ? (
-                    <div className="dropdown dropdown-end ml-2">
-                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full">
-                                <img src={session.user?.image ?? ""} />
-                            </div>
+            {status === "authenticated" ? (
+                <div className="dropdown dropdown-end ml-2">
+                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                        <div className="w-10 rounded-full">
+                            <img src={session.user?.image ?? ""} />
+                        </div>
+                    </label>
+                    <ul
+                        tabIndex={0}
+                        className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+                    >
+                        <Link href={"/dashboard"}>
+                            <li className="mb-2">
+                                <a className="justify-between">DashBoard</a>
+                            </li>
+                        </Link>
+                        <label htmlFor="logout-modal" className="btn btn-sm modal-button">
+                            Logout
                         </label>
-                        <ul
-                            tabIndex={0}
-                            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-                        >
-                            <Link href={"/dashboard"}>
-                                <li className="mb-2">
-                                    <a className="justify-between">DashBoard</a>
-                                </li>
-                            </Link>
-                            <label htmlFor="logout-modal" className="btn btn-sm modal-button">
-                                Logout
-                            </label>
-                        </ul>
-                    </div>
-                ) : (
-                    <></>
-                )
-            }
+                    </ul>
+                </div>
+            ) : (
+                <></>
+            )}
 
             <input type="checkbox" id="logout-modal" className="modal-toggle" />
             <div className="modal">
@@ -138,9 +130,7 @@ const Navbar = () => {
                         ✕
                     </label>
                     <h3 className="text-lg font-bold">あなたはログアウトしようとしています</h3>
-                    <button className="mt-3 btn btn-primary w-full"
-                        onClick={() => signOut()}
-                    >
+                    <button className="mt-3 btn btn-primary w-full" onClick={() => signOut()}>
                         ログアウト
                     </button>
                 </div>
