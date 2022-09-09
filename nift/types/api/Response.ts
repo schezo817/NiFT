@@ -6,7 +6,9 @@ export interface BasicResponse {
 export interface SuccessResponse extends BasicResponse {}
 
 export interface FailedResponse extends BasicResponse {
-    data: {
-        message: string;
-    };
+    data: BasicMessage;
+}
+
+export interface BasicMessage {
+    message: string;
 }
