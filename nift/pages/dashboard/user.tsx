@@ -53,6 +53,25 @@ export const UserEdit: NextPage = () => {
         setUserName(event.target.value);
     }
 
+    const postUserUpdate = async () => {
+        try {
+            const userResponse = await apiClient.user.$post({
+                body: {
+                    id: user?.id as string,
+                    user_name: userName,
+                    wallet_address: walletAddress
+                }
+            });
+            console.log(userResponse);
+            if (userResponse.status === "success") {
+                // 保存が正常に完了したらdashboardに戻る
+                router.push("/dashboard");
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
     return (
         <div className="p-4">
             <h1 className="px-8 text-3xl font-bold">ユーザ情報</h1>
@@ -116,12 +135,7 @@ export const UserEdit: NextPage = () => {
                 </div>
                 <div
                     className="btn w-full"
-                    onClick={() => {
-                        console.log("Save Accounts");
-
-                        // 保存が正常に完了したらdashboardに戻る
-                        router.push("/dashboard");
-                    }}
+                    onClick={postUserUpdate}
                 >
                     保存する
                 </div>
