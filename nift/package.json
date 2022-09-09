@@ -5,7 +5,9 @@
     "license": "UNLICENSED",
     "scripts": {
         "dev": "next dev",
-        "build": "next build",
+        "dev:aspida": "aspida --watch",
+        "aspida": "aspida",
+        "build": "aspida && next build",
         "start": "next start",
         "lint": "next lint --dir pages",
         "lint:check": "prettier --check --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'",
