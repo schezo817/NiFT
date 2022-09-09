@@ -1,6 +1,5 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-import { string } from "prop-types";
 
 export default NextAuth({
     providers: [
@@ -9,9 +8,4 @@ export default NextAuth({
             clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? "",
         }),
     ],
-    callbacks: {
-        async redirect({ url, baseUrl }) {
-            return baseUrl;
-        },
-    },
 });
