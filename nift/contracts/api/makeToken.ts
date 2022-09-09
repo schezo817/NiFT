@@ -34,6 +34,17 @@ const makeToken = () => {
         const tokenid = await contract.methods.createToken(tokenURI, price);
         return tokenid;
     }
+
+    const marketSale = async () => {
+        const tokenId = states.nft_id;
+        await contract.methods.createToken(tokenId);
+    }
+
+    const sellToken = async () => {
+        const tokenId = states.nft_id;
+        const price = states.price;
+        await contract.methods.resellToken(tokenId, price);
+    }
 };
 
 export default makeToken;
