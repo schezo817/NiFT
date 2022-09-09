@@ -81,15 +81,15 @@ const Navbar = () => {
                 {status === "authenticated" ? (
                     <></>
                 ) : (
-                        <div
-                            className="btn items-center btn-primary"
-                            onClick={() => {
-                                signIn("google");
-                            }}
-                        >
-                            <MdLogin className="text-xl" />
-                            <span className="hidden sm:inline-block pl-2">LogIn</span>
-                        </div>
+                    <div
+                        className="btn items-center btn-primary"
+                        onClick={() => {
+                            signIn("google");
+                        }}
+                    >
+                        <MdLogin className="text-xl" />
+                        <span className="hidden sm:inline-block pl-2">LogIn</span>
+                    </div>
                 )}
                 <Link href={"/get"}>
                     <div className="btn items-center btn-primary">
