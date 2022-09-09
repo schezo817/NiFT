@@ -2,7 +2,7 @@ import Link from "next/link";
 import { HiChevronDown } from "react-icons/hi";
 import { AiOutlineGift, AiOutlineShop } from "react-icons/ai";
 import { MdLogin, MdOutlineHome, MdMenu } from "react-icons/md";
-import { signOut, useSession } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 const Navbar = () => {
     const { data: session, status } = useSession();
@@ -82,17 +82,22 @@ const Navbar = () => {
                     <></>
                 ) : (
                     <Link href={"/login"}>
-                        <button className="btn items-center btn-primary">
+                        <div
+                            className="btn items-center btn-primary"
+                            onClick={() => {
+                                signIn("google");
+                            }}
+                        >
                             <MdLogin className="text-xl" />
                             <span className="hidden sm:inline-block pl-2">LogIn</span>
-                        </button>
+                        </div>
                     </Link>
                 )}
                 <Link href={"/get"}>
-                    <button className="btn items-center btn-primary">
+                    <div className="btn items-center btn-primary">
                         <AiOutlineGift className="text-xl" />
                         <span className="hidden sm:inline-block pl-2">GET NiFT</span>
-                    </button>
+                    </div>
                 </Link>
             </div>
             {status === "authenticated" ? (
@@ -130,9 +135,9 @@ const Navbar = () => {
                         ✕
                     </label>
                     <h3 className="text-lg font-bold">あなたはログアウトしようとしています</h3>
-                    <button className="mt-3 btn btn-primary w-full" onClick={() => signOut()}>
+                    <div className="mt-3 btn btn-primary w-full" onClick={() => signOut()}>
                         ログアウト
-                    </button>
+                    </div>
                 </div>
             </div>
         </div>
