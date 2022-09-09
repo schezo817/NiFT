@@ -1,54 +1,67 @@
-/*
-  Warnings:
+-- CreateTable
+CREATE TABLE "Account" (
+    "id" TEXT NOT NULL,
+    "userId" TEXT NOT NULL,
+    "type" TEXT NOT NULL,
+    "provider" TEXT NOT NULL,
+    "providerAccountId" TEXT NOT NULL,
+    "refresh_token" TEXT,
+    "access_token" TEXT,
+    "expires_at" INTEGER,
+    "token_type" TEXT,
+    "scope" TEXT,
+    "id_token" TEXT,
+    "session_state" TEXT,
 
-  - You are about to drop the column `uuid` on the `users` table. All the data in the column will be lost.
-  - You are about to drop the `reserved_NFT_detail` table. If the table is not empty, all the data it contains will be lost.
-  - You are about to drop the `reserved_NFT_flag` table. If the table is not empty, all the data it contains will be lost.
-  - You are about to drop the `reserved_NFTs` table. If the table is not empty, all the data it contains will be lost.
-  - A unique constraint covering the columns `[user_id]` on the table `users` will be added. If there are existing duplicate values, this will fail.
-  - Added the required column `user_id` to the `users` table without a default value. This is not possible if the table is not empty.
+    CONSTRAINT "Account_pkey" PRIMARY KEY ("id")
+);
 
-*/
--- DropForeignKey
-ALTER TABLE "reserved_NFT_detail" DROP CONSTRAINT "reserved_NFT_detail_uuid_fkey";
+-- CreateTable
+CREATE TABLE "Session" (
+    "id" TEXT NOT NULL,
+    "sessionToken" TEXT NOT NULL,
+    "userId" TEXT NOT NULL,
+    "expires" TIMESTAMP(3) NOT NULL,
 
--- DropForeignKey
-ALTER TABLE "reserved_NFT_flag" DROP CONSTRAINT "reserved_NFT_flag_uuid_fkey";
+    CONSTRAINT "Session_pkey" PRIMARY KEY ("id")
+);
 
--- DropForeignKey
-ALTER TABLE "reserved_NFTs" DROP CONSTRAINT "reserved_NFTs_user_id_fkey";
+-- CreateTable
+CREATE TABLE "User" (
+    "id" TEXT NOT NULL,
+    "name" TEXT,
+    "email" TEXT,
+    "emailVerified" TIMESTAMP(3),
+    "image" TEXT,
 
--- DropForeignKey
-ALTER TABLE "user_auth" DROP CONSTRAINT "user_auth_user_id_fkey";
+    CONSTRAINT "User_pkey" PRIMARY KEY ("id")
+);
 
--- DropForeignKey
-ALTER TABLE "user_detail" DROP CONSTRAINT "user_detail_user_id_fkey";
+-- CreateTable
+CREATE TABLE "UserDetail" (
+    "id" TEXT NOT NULL,
+    "user_name" TEXT,
+    "wallet_address" TEXT,
+    "is_company" BOOLEAN,
 
--- DropForeignKey
-ALTER TABLE "user_flag" DROP CONSTRAINT "user_flag_user_id_fkey";
+    CONSTRAINT "UserDetail_pkey" PRIMARY KEY ("id")
+);
 
--- DropIndex
-DROP INDEX "users_uuid_key";
-
--- AlterTable
-ALTER TABLE "users" DROP COLUMN "uuid",
-ADD COLUMN     "user_id" UUID NOT NULL;
-
--- DropTable
-DROP TABLE "reserved_NFT_detail";
-
--- DropTable
-DROP TABLE "reserved_NFT_flag";
-
--- DropTable
-DROP TABLE "reserved_NFTs";
+-- CreateTable
+CREATE TABLE "VerificationToken" (
+    "identifier" TEXT NOT NULL,
+    "token" TEXT NOT NULL,
+    "expires" TIMESTAMP(3) NOT NULL
+);
 
 -- CreateTable
 CREATE TABLE "reserved_nfts" (
-    "user_id" UUID NOT NULL,
+    "id" TEXT NOT NULL,
     "series_id" UUID NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updated_at" TIMESTAMP(3) NOT NULL
+    "updated_at" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "reserved_nfts_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -77,10 +90,10 @@ CREATE TABLE "series_lot" (
 -- CreateTable
 CREATE TABLE "series_detail" (
     "series_id" UUID NOT NULL,
+    "nft_name" VARCHAR(255) NOT NULL,
     "brand_name" VARCHAR(255) NOT NULL,
     "description" VARCHAR(255) NOT NULL,
-    "royalty_first" INTEGER NOT NULL,
-    "royalty_second" INTEGER NOT NULL,
+    "royalty_first" DECIMAL(6,3) NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL
 );
@@ -103,7 +116,19 @@ CREATE TABLE "nft_status" (
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "reserved_nfts_user_id_key" ON "reserved_nfts"("user_id");
+CREATE UNIQUE INDEX "Account_provider_providerAccountId_key" ON "Account"("provider", "providerAccountId");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Session_sessionToken_key" ON "Session"("sessionToken");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "VerificationToken_token_key" ON "VerificationToken"("token");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "VerificationToken_identifier_token_key" ON "VerificationToken"("identifier", "token");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "reserved_nfts_series_id_key" ON "reserved_nfts"("series_id");
@@ -126,20 +151,17 @@ CREATE UNIQUE INDEX "series_nfts_nft_id_key" ON "series_nfts"("nft_id");
 -- CreateIndex
 CREATE UNIQUE INDEX "nft_status_nft_id_key" ON "nft_status"("nft_id");
 
--- CreateIndex
-CREATE UNIQUE INDEX "users_user_id_key" ON "users"("user_id");
+-- AddForeignKey
+ALTER TABLE "Account" ADD CONSTRAINT "Account_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "user_auth" ADD CONSTRAINT "user_auth_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "users"("user_id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Session" ADD CONSTRAINT "Session_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "user_detail" ADD CONSTRAINT "user_detail_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "users"("user_id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "UserDetail" ADD CONSTRAINT "UserDetail_id_fkey" FOREIGN KEY ("id") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "user_flag" ADD CONSTRAINT "user_flag_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "users"("user_id") ON DELETE RESTRICT ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE "reserved_nfts" ADD CONSTRAINT "reserved_nfts_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "users"("user_id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "reserved_nfts" ADD CONSTRAINT "reserved_nfts_id_fkey" FOREIGN KEY ("id") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "series_image" ADD CONSTRAINT "series_image_series_id_fkey" FOREIGN KEY ("series_id") REFERENCES "reserved_nfts"("series_id") ON DELETE RESTRICT ON UPDATE CASCADE;
