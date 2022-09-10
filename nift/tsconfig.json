@@ -19,6 +19,6 @@
             "@/*": ["./src/*"]
         }
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/marketplace/brand"],
     "exclude": ["node_modules"]
 }
