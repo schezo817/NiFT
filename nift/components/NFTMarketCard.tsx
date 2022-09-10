@@ -3,7 +3,6 @@ import { NFT } from "types/nfts";
 
 type NFTProps = NFT;
 
-
 const NFTMarketCard = (props: NFTProps) => {
     return (
         <div className="bg-white">
