@@ -6,9 +6,9 @@ require("dotenv").config();
 module.exports = {
     solidity: "0.8.9",
     networks: {
-        rinkeby: {
-            url: "https://rinkeby.infura.io/v3/" + process.env.INFURA_KEY,
-            accounts: [`${process.env.PRIVATE_KEY}`],
+        mumbai: {
+            url: "https://polygon-mumbai.g.alchemy.com/v2/" + process.env.INFURA_KEY,
+            accounts: [process.env.PRIVATE_KEY],
         },
     },
 };

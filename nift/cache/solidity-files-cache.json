@@ -475,8 +475,8 @@
       ]
     },
     "/Users/akito/Nift/NiFT/nift/contracts/NFTMarketPlace.sol": {
-      "lastModificationDate": 1662740467399,
-      "contentHash": "ecfed99651155df8421497f5bd414c7c",
+      "lastModificationDate": 1662768728123,
+      "contentHash": "3e43309ad70590a9b618a7d5d6787b0f",
       "sourceName": "contracts/NFTMarketPlace.sol",
       "solcConfig": {
         "version": "0.8.9",

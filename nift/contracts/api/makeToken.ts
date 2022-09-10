@@ -4,7 +4,7 @@ import artifact from "artifacts/contracts/NFTMarketPlace.sol/NFTMarketPlace.json
 import { NFT, NFTCreation } from "types/nfts";
 
 const makeToken = () => {
-    const contractAddress = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266";
+    const contractAddress = "0x6A18D8116d52AF0866A1Cc4fa9ba709F1e88527B";
     var contract: any;
     const [states, setStates] = useState<NFT>({
         nft_id: "0",
