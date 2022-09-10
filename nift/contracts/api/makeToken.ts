@@ -56,6 +56,16 @@ const makeToken = () => {
         states.price = price;
         states.wallet_address = wallet_address;
     }
+
+    const getMyNFTs: any = async () => {
+        const myNFTs = await contract.methods.MyNFTs();
+        return myNFTs;
+    }
+
+    const getMarketNFTs: any = async () => {
+        const marketNFTs = await contract.methods.fetchMarketItems();
+        return marketNFTs;
+    }
 };
 
 export default makeToken;
