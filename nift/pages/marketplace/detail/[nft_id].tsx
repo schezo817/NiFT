@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { NFT } from "types/nfts";
+import { ethers } from "ethers";
 
 const Detail: NextPage = () => {
     const router = useRouter();
@@ -18,6 +19,32 @@ const Detail: NextPage = () => {
         price: 100,
         wallet_address: "0x000000",
     });
+    const [isVerified, setIsVerified] = useState(false);
+
+    const onClick = async () => {
+        if (!(window as any).ethereum) {
+            console.error("!window.ethereum");
+            return;
+        }
+
+        const provider = new ethers.providers.Web3Provider((window as any).ethereum);
+        await provider.send("eth_requestAccounts", []);
+
+        const signer = await provider.getSigner();
+        const message = "message";
+        const address = await signer.getAddress();
+        const signature = await signer.signMessage(message);
+        const response = await fetch("/api/verify", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json; charset=UTF-8",
+            },
+            body: JSON.stringify({ message, address, signature }),
+        });
+
+        const body = await response.json();
+        setIsVerified(body.isVerified);
+    };
 
     return (
         <div className="bg-white">
@@ -46,7 +73,9 @@ const Detail: NextPage = () => {
                         <div className="space-y-6 mt-10">
                             <p className="text-base text-gray-900">{detailNFT.description}</p>
                         </div>
-                        <div className="my-10 btn btn-primary w-full">Buy Now</div>
+                        <div className="my-10 btn btn-primary w-full" onClick={onClick}>
+                            Buy Now
+                        </div>
                     </div>
                 </div>
             </div>
